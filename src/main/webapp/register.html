@@ -24,29 +24,29 @@
     <div class="register background-image">
 
         <div class="myForm__container">
-            <form class="myForm" action="/formulario" method="POST">
+            <form class="myForm" action="procesarRegistro.jsp" method="POST">
                 <h1 class="myForm__title">Sign up</h1>
 
                 <div class="myForm__field">
                     <label class="form__label" for="name">Name</label>
-                    <input class="form__input form__input-contain input--no-outline" type="text" name="name" id="name">
+                    <input class="form__input form__input-contain input--no-outline" type="text" name="name" id="name" required>
                 </div>
 
                 <div class="myForm__field">
                     <label class="form__label" for="email">Email</label>
-                    <input class="form__input form__input-contain input--no-outline" type="email" name="email" id="email">
+                    <input class="form__input form__input-contain input--no-outline" type="email" name="email" id="email" required>
                 </div>
 
                 <div class="myForm__field">
                     <label class="form__label" for="user">User</label>
-                    <input class="form__input form__input-contain input--no-outline" type="text" name="user" id="user">
+                    <input class="form__input form__input-contain input--no-outline" type="text" name="user" id="user" required>
                 </div>
 
                 <div class="myForm__field">
                     <label class="form__label" for="password">Password</label>
 
                     <div class="form__input form__input--contain-password">
-                        <input class="form__input--pass input--no-outline " type="password" name="password" id="password">
+                        <input class="form__input--pass input--no-outline " type="password" name="password" id="password" required>
                         <button class="btn btn__icon btn--noBorder btn--noOutline" type="button"><span
                                 class="material-icons-outlined md--grey">visibility</span></button>
                     </div>
@@ -57,7 +57,7 @@
 
                     <div class="form__input form__input--contain-password">
                         <input class="form__input--pass input--no-outline" type="password" name="confirm-password"
-                            id="confirmpassword">
+                               id="confirmpassword" required>
                         <button class="btn btn__icon btn--noBorder btn--noOutline" type="button">
                             <span class="material-icons-outlined md--grey">visibility</span>
                         </button>
