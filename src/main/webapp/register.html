@@ -15,7 +15,7 @@
     <!--Mi css-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="assets/img/Kaktus2.svg" type="image/x-icon">
-    
+
     <title>Kaktus | Registro</title>
 </head>
 
@@ -29,24 +29,28 @@
 
                 <div class="myForm__field">
                     <label class="form__label" for="name">Name</label>
-                    <input class="form__input form__input-contain input--no-outline" type="text" name="name" id="name" required>
+                    <input class="form__input form__input-contain input--no-outline" type="text" name="name" id="name"
+                        required>
                 </div>
 
                 <div class="myForm__field">
                     <label class="form__label" for="email">Email</label>
-                    <input class="form__input form__input-contain input--no-outline" type="email" name="email" id="email" required>
+                    <input class="form__input form__input-contain input--no-outline" type="email" name="email"
+                        id="email" required>
                 </div>
 
                 <div class="myForm__field">
                     <label class="form__label" for="user">User</label>
-                    <input class="form__input form__input-contain input--no-outline" type="text" name="user" id="user" required>
+                    <input class="form__input form__input-contain input--no-outline" type="text" name="user" id="user"
+                        required>
                 </div>
 
                 <div class="myForm__field">
                     <label class="form__label" for="password">Password</label>
 
                     <div class="form__input form__input--contain-password">
-                        <input class="form__input--pass input--no-outline " type="password" name="password" id="password" required>
+                        <input class="form__input--pass input--no-outline " type="password" name="password"
+                            id="password"  required>
                         <button class="btn btn__icon btn--noBorder btn--noOutline" type="button"><span
                                 class="material-icons-outlined md--grey">visibility</span></button>
                     </div>
@@ -57,7 +61,7 @@
 
                     <div class="form__input form__input--contain-password">
                         <input class="form__input--pass input--no-outline" type="password" name="confirm-password"
-                               id="confirmpassword" required>
+                             id="confirm-password" required>
                         <button class="btn btn__icon btn--noBorder btn--noOutline" type="button">
                             <span class="material-icons-outlined md--grey">visibility</span>
                         </button>
@@ -65,10 +69,10 @@
                 </div>
 
                 <div class="myForm__btns">
-                    <button class="btn--register btn--noBorder btn--noOutline" type="submit">Register</button>
-
-                    <button class="btn--google btn--noBorder btn--noOutline" type="button"><img class="img-google" src="assets/img/google.svg"
-                            alt="SignUp-google" width="50px"></button>
+                    <button class="btn--register btn--noBorder btn--noOutline" type="submit" onclick="return validate()">Register</button>
+                    <script src="js/validation.js"></script>
+                    <button class="btn--google btn--noBorder btn--noOutline" type="button"><img class="img-google"
+                            src="assets/img/google.svg" alt="SignUp-google" width="50px"></button>
                 </div>
             </form>
         </div>
