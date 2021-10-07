@@ -2,10 +2,19 @@ function validate() {
 
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirm-password").value;
+
     if (password != confirmPassword) {
-        alert("Las contraseñas no son iguales, por favor verifique.");
+
+        var passId = document.getElementById("pass-id");
+        var confirmId = document.getElementById("confirm-id");
+
+        passId.classList.add("input--no-validate");
+        confirmId.classList.add("input--no-validate");
+
         return false;
     }
-    return true;
+    else { return true; }
+
+
 
 }
