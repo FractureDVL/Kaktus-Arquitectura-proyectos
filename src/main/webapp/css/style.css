@@ -355,6 +355,12 @@
     margin: 5px 0 10px 0;
 }
 
+.input--no-validate{
+ 
+    border: 1px #ff0000 solid;
+    
+}
+
 .btn-login {
     color: var(--color-white);
     background-color: var(--color-dark-greenblue);
