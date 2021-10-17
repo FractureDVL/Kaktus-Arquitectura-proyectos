@@ -1,5 +1,5 @@
 :root {
-    --title-font: 48px;
+    --title-font: 40px;
     --label-font: 16px;
     --color-grey: #CFCFCF;
     --color-grey-hover: #b1b1b1;
@@ -36,20 +36,30 @@
 /*Form box properties*/
 
 .register-page .myForm__container {
+
     display: flex;
     justify-content: center;
     flex: 1 1;
     grid-column: 2/3;
 }
+/*login text ref*/
+.register-page .myForm__create{
+    font-size: 16;
+    color: var(--color-dark-greenblue);
+}
+.register-page .create__link{
+    text-decoration:  none;
+    color: var(--color-medium-greenblue);
+}
+
 
 .register-page .myForm {
     box-shadow: 0 0 15px var(--color-grey);
     background-color: var(--color-white);
-    border-radius: 10%;
+    border-radius: 10px;
     display: inline-flex;
     flex-direction: column;
     padding: 20px 80px;
-    padding-right: 100px;
     width: 40%;
     animation: moveAnimation 1s ease-in;
 }
@@ -83,7 +93,7 @@
     width: 100%;
 }
 
-.myForm__field {
+.register-page .myForm__field {
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -196,37 +206,52 @@
 
 /*Tablet responsive*/
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1265px) {
     .register-page .register {
-        display: flex;
         height: 100vh;
+        grid-template-columns: 1fr 1fr;
+    }
+    .register-page .myForm__container{
+        grid-column: 1/3;
     }
     .register-page .background-image {
-        background: #C5F5F5;
+        background-image: var(--background-image);
     }
     .register-page .myForm-ctn {
         background-color: var(--color-light-greenblue);
     }
     .register-page .myForm {
+        max-width: 600px;
         background-color: var(--color-white);
-        border-radius: 10%;
         display: inline-flex;
         flex-direction: column;
         padding: 20px 80px;
-        padding-right: 100px;
-        width: 40%;
     }
+    .register-page .myForm__title {
+        font-size: 38px;
+    }
+    .register-page .myForm__label {
+        font-size: 14px;
+    }
+    .register-page .btn--register {
+        font-size: 27px;
+    }
+    .register-page .btn--google {
+        padding: 4px;
+    }
+
 }
 
-/*mobile responsive*/
-
-@media screen and (max-width:500px)and (min-width:0px) {
+@media screen and (max-width:500px)and (min-width:376px) {
     .register-page .register {
         height: 100vh;
         display: flex;
         background-color: var(--color-white);
     }
-    .register-page .form__container {
+    .register-page .background-image{
+        background:none;
+    }
+    .register-page .myform__container {
         background-color: var(--color-white);
         display: flex;
         padding: 60px;
@@ -237,26 +262,65 @@
     .register-page .myForm {
         width: 100%;
         display: inline;
-        padding: 0px 100px;
+        padding: 0px 60px;
         box-shadow: none;
         border-radius: 0px;
         animation: 1s moveAnimation ease-in;
     }
-    .register-page .form__title {
-        font-size: 45px;
+    .register-page .myForm__title {
+        font-size: 36px;
     }
-    .register-page .form__label {
-        font-size: 17px;
+    .register-page .myForm__label {
+        font-size: 13px;
     }
     .register-page .btn--register {
-        font-size: 20px;
+        font-size: 26px;
     }
     .register-page .btn--google {
         padding: 4px;
     }
 }
+@media screen and (max-width:375.99px)and (min-width:0px){
 
-/*Little animation for loading images and items*/
+    .register-page .register {
+        height: 100vh;
+        display: flex;
+        background-color: var(--color-white);
+    }
+    .register-page .background-image{
+        background:none;
+    }
+    .register-page .myform__container {
+        height: 100vh;
+        background-color: var(--color-white);
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .register-page .myForm {
+        width: 100%;
+        display: inline;
+        padding: 0px 60px;
+        box-shadow: none;
+        border-radius: 0px;
+        animation: 1s moveAnimation ease-in;
+    }
+
+    .register-page .myForm__title {
+        font-size: 30px;
+    }
+    .register-page .form__label {
+        font-size: 14px;
+    }
+    .register-page .btn--register {
+        font-size: 16px;
+    }
+    .register-page .btn--google {
+        padding: 4px;
+    }
+
+}
+
 
 @keyframes moveAnimation {
     0% {
@@ -279,6 +343,26 @@
     grid-template-columns: 1fr 1.3fr;
     animation: moveAnimation 1s ease-in;
 }
+/*register text ref*/
+.login-page .myForm__create{
+    font-size: 16px;
+    color: var(--color-dark-greenblue);
+    margin-bottom: 40px;
+}
+.login-page .create__link{
+    text-decoration:  none;
+    color: var(--color-medium-greenblue);
+}
+
+.login-page .forgot__pass{
+    text-decoration:  none;
+    font-size: 16px;
+    color: var(--color-dark-greenblue);
+}
+.login-page .myForm__text{
+    margin-top: 0px;   
+}
+
 
 .background-image {
     background: var(--background-image);
@@ -286,53 +370,60 @@
     background-size: cover;
 }
 
-.myForm__container {
+.login-page .myForm__container {
     display: flex;
     justify-content: center;
     grid-column: 2/3;
 }
 
-.myForm {
+/*Form input width*/
+.login-page .myForm__field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-page .myForm {
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0 0 15px var(--color-grey);
     background-color: var(--color-white);
-    border-radius: 10%;
+    border-radius: 10px;
     padding: 40px 100px;
     padding-right: 120px;
     animation: moveAnimation 1s ease-in;
 }
 
-.myForm__title {
+.login-page .myForm__title {
     font-weight: bolder;
     text-align: center;
     color: var(--color-dark-greenblue);
     font-size: var(--title-font);
 }
 
-.title {
+.login-page .title {
     font-weight: bolder;
     text-align: center;
     color: var(--color-dark-greenblue);
     font-size: var(--title-font);
 }
 
-.myForm__input {
+.login-page .myForm__input {
     width: 100%;
 }
 
-.label {
+.login-page .label {
     font-size: var(--label-font);
     color: var(--color-medium-greenblue);
 }
 
-.input-ctn {
+.login-page .input-ctn {
     display: flex;
     flex-direction: row;
 }
 
-.input {
+.login-page .input {
     display: flex;
     border: 1px var(--color-grey) solid;
     border-radius: 100px;
@@ -341,13 +432,13 @@
     width: 100%;
 }
 
-.myForm__btn {
+.login-page .myForm__btn {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.input {
+.login-page .input {
     display: flex;
     border: 1px var(--color-grey) solid;
     border-radius: 100px;
@@ -355,13 +446,11 @@
     margin: 5px 0 10px 0;
 }
 
-.input--no-validate{
- 
+.login-page .input--no-validate {
     border: 1px #ff0000 solid;
-    
 }
 
-.btn-login {
+.login-page .btn-login {
     color: var(--color-white);
     background-color: var(--color-dark-greenblue);
     border-radius: 100px;
@@ -373,33 +462,154 @@
     box-shadow: 2px 2px 5px var(--color-grey);
 }
 
-.icon-visibility {
+.login-page .icon-visibility {
     color: var(--color-grey);
     margin: 0;
     padding: 0;
 }
 
-.icon-visibility:hover {
+.login-page .icon-visibility:hover {
     color: var(--color-grey-hover);
     user-select: none;
 }
 
+
 /*Login button properties*/
 
-.btn--login {
+.login-page .btn--login {
+    margin-right: 0px;
     color: var(--color-white);
     background-color: var(--color-dark-greenblue);
     border-radius: 100px;
     font-size: 20px;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 20px 10px 20px;
     margin: 10px;
     margin-top: 20px;
     align-self: center;
     box-shadow: 2px 2px 5px var(--color-grey);
 }
 
-.btn--login:hover {
+.login-page .btn--login:hover {
     background-color: var(--color-dark-greenblue-hover);
+}
+/* Responsive login page*/
+/*Tablet responsive login*/
+@media screen and (max-width: 1265px) {
+    .login-page .register {
+        height: 100vh;
+        grid-template-columns: 1fr 1fr;
+    }
+    .login-page .myForm__container{
+        grid-column: 1/3;
+    }
+    .login-page .background-image {
+        background-image: var(--background-image);
+    }
+    .login-page .myForm-ctn {
+        background-color: var(--color-light-greenblue);
+    }
+    .login-page .myForm {
+        max-width: 600px;
+        background-color: var(--color-white);
+        display: inline-flex;
+        flex-direction: column;
+        padding: 20px 80px;
+    }
+    .login-page .myForm__title {
+        font-size: 38px;
+    }
+    .login-page .myForm__label {
+        font-size: 14px;
+    }
+    .login-page .btn--register {
+        font-size: 27px;
+    }
+    .login-page .btn--google {
+        padding: 4px;
+    }
+
+}
+
+@media screen and (max-width:500px)and (min-width:376px) {
+    .login-page .register {
+        height: 100vh;
+        display: flex;
+        background-color: var(--color-white);
+    }
+    .login-page .background-image{
+        background:none;
+    }
+    .login-page .myform__container {
+        background-color: var(--color-white);
+        display: flex;
+        padding: 60px;
+        padding-right: 70px;
+        width: 100%;
+        justify-content: center;
+    }
+    .login-page .myForm {
+        width: 100%;
+        display: inline;
+        padding: 0px 60px;
+        box-shadow: none;
+        border-radius: 0px;
+        animation: 1s moveAnimation ease-in;
+    }
+    .login-page .myForm__title {
+        font-size: 36px;
+    }
+    .login-page .myForm__label {
+        font-size: 13px;
+    }
+    .login-page .btn--register {
+        font-size: 26px;
+    }
+    .login-page .btn--google {
+        padding: 4px;
+    }
+}
+@media screen and (max-width:375.99px)and (min-width:0px){
+
+    .login-page .register {
+        height: 100vh;
+        display: flex;
+        background-color: var(--color-white);
+    }
+    .login-page .background-image{
+        background:none;
+    }
+    .login-page .myform__container {
+        height: 100vh;
+        background-color: var(--color-white);
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .login-page .myForm {
+        width: 100%;
+        display: inline;
+        padding: 0px 60px;
+        box-shadow: none;
+        border-radius: 0px;
+        animation: 1s moveAnimation ease-in;
+    }
+
+    .login-page .myForm__title {
+        font-size: 30px;
+    }
+    .login-page .form__label {
+        font-size: 14px;
+    }
+    .login-page .btn--register {
+        font-size: 16px;
+    }
+    .login-page .btn--google {
+        padding: 4px;
+    }
+    .login-page .create__link::after{
+        content: "\a";
+        white-space: pre;
+    }
 }
 
 /* Google icons into the css file*/
