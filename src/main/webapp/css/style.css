@@ -13,7 +13,7 @@
 }
 
 * {
-    font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /*Register box*/
@@ -529,7 +529,7 @@
     }
 
 }
-
+/*responsive to phone*/
 @media screen and (max-width:500px)and (min-width:376px) {
     .login-page .register {
         height: 100vh;
@@ -611,6 +611,124 @@
         white-space: pre;
     }
 }
+
+/*Landing page nav bar*/
+
+
+.landing-page .header {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+    padding: 5px 30px;
+}
+
+.landing-page .header__nav {
+    padding-left: 30px;
+    flex: 1 1;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.landing-page .header__brand {
+    display: inline-flex;
+    flex: .25 1;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 40px;
+
+}
+
+.landing-page .nav__brand-logo {
+    width: 36px;
+    margin-right: 5px;
+}
+
+.landing-page .nav__brand-text-logo {
+    font-family: 'Oxygen', sans-serif;
+    color: #3CAD7B;
+    margin: 0px;
+    font-size: 33px;
+    font-weight: bold;
+    color: #57CC99;
+    filter: drop-shadow(-3px 0px 0px #267072);
+    letter-spacing: 2px;
+}
+
+.landing-page .option--no-style {
+    list-style: none;
+}
+
+.landing-page .link--no-deco {
+    text-decoration: none;
+}
+.landing-page .link-clr{
+    color: #3CAD7B;
+}
+
+/*search bar*/
+
+.landing-page .header__search-bar {
+    flex: 1 1;
+    align-self: center;
+    display: inline-flex;
+    border: 1px solid #3CAD7B;
+    border-radius: 5px;
+    box-shadow: inset ;
+    outline: none;
+    margin-left: 0px;
+}
+
+.landing-page .search-bar__input{
+    width: 100%;
+    border-top-left-radius:0px;
+    border-bottom-left-radius: 0px;
+    outline: none;
+    border: none;
+    border-radius: 5px ;
+}
+
+.landing-page .search-bar__input::placeholder{
+    color: #3CAD7B;
+    text-align: center;   
+}
+
+.landing-page .search-bar__btn {
+    background-color: #3CAD7B;
+    display: flex;
+    border: none;
+    outline: none;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.landing-page .clr-white{
+    color: #fff;
+    text-align: center;
+}
+
+/*Option btn style*/
+
+.landing-page .nav__option-link{
+    align-items: center;
+    display: flex;
+}
+.landing-page .btn--style-nb{
+    border-radius: 3px;
+    border: 1px solid #3CAD7B;
+    padding: 5px;
+}
+
+.landing-page .btn--style-b{
+    color: #fff;
+    background-color: #3CAD7B;
+    border-radius: 3px;
+    border: 1px solid #3CAD7B;
+    padding: 5px;
+}
+
+
 
 /* Google icons into the css file*/
 
