@@ -17,7 +17,7 @@
     <!--Brand logo font-->
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
     <!--Mi css-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-nav.css">
 </head>
 
 <body class="landing-page">
@@ -26,19 +26,22 @@
 
         <a class="header__brand link--no-deco" href="#">
             <img class="nav__brand-logo" src="assets/img/Kaktus2.svg" alt="">
-            <p class="nav__brand-text-logo">KAKTUS</p>
+            <p class="nav__brand-text-logo">kaktus</p>
         </a>
         
         <div class="header__search-bar">
-            <button class="search-bar__btn" type="submit">
-                <span class="material-icons-outlined clr-white">search</span>
-            </button>
-            <input class="search-bar__input" type="search" name="" id="" placeholder="Buscar...">
+            <form class="search-bar__form" action="search.jsp">
+                <button class="search-bar__btn" type="submit">
+                    <span class="material-icons-outlined clr-white">search</span>
+                </button>
+
+                <input class="search-bar__input input--no-deco" type="search" name="" id="" placeholder="Buscar...">
+            </form>
         </div>
 
         <nav class="header__nav">
             <a class="nav__option-link link--no-deco link-clr cursor-p" href="">ES</a>
-            <a class="nav__option-link link--no-deco link-clr btn--style-nb cursor-p" href="login.html">Iniciar sesion</a>
+            <a class="nav__option-link link--no-deco link-clr btn--style-nb cursor-p" href="login.html">Iniciar sesión</a>
             <a class="nav__option-link link--no-deco link-clr btn--style-b cursor-p" href="register.html">Registrarse</a>
         </nav>
     </header>
