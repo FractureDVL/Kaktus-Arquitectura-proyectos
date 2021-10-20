@@ -1,7 +1,8 @@
 :root {
     --title-font: 40px;
     --label-font: 16px;
-    --color-grey: #CFCFCF;
+    --btn-font: 20px;
+    --color-grey: #cccccc;
     --color-grey-hover: #b1b1b1;
     --color-light-greenblue: #BDF4F4;
     --color-white: #fff;
@@ -18,7 +19,7 @@
 
 /*Register box*/
 
-.register-page .register {
+.register-page .register, .login-page .login {
     height: 100vh;
     display: grid;
     flex-direction: row;
@@ -27,48 +28,70 @@
     animation: moveAnimation 1s ease-in;
 }
 
-.register-page .background-image {
+.resetpass-page .resetpass {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.register-page .background-image, .login-page .background-image {
     background: var(--background-image);
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.resetpass-page .background-image{
+    background-color: var(--color-light-greenblue);
+}
 /*Form box properties*/
 
-.register-page .myForm__container {
-
+.register-page .myform__container, .login-page .myform__container, .resetpass-page .myform__container {
     display: flex;
     justify-content: center;
-    flex: 1 1;
     grid-column: 2/3;
 }
+
 /*login text ref*/
-.register-page .myForm__create{
-    font-size: 16;
+
+.myform__text {
+    color: var(--color-dark-greenblue);
+    align-self: flex-start;
+}
+
+.resetpass-page .myform__text {
+    align-self: center;
+    font-size: 16px;
+}
+
+.text__link {
+    text-decoration: none;
     color: var(--color-dark-greenblue);
 }
-.register-page .create__link{
-    text-decoration:  none;
-    color: var(--color-medium-greenblue);
-}
 
-
-.register-page .myForm {
+.register-page .myform, .login-page .myform, .resetpass-page .myform {
     box-shadow: 0 0 15px var(--color-grey);
     background-color: var(--color-white);
     border-radius: 10px;
     display: inline-flex;
     flex-direction: column;
     padding: 20px 80px;
+    padding-right: 85px;
     width: 40%;
+    align-self: center;
     animation: moveAnimation 1s ease-in;
 }
+.resetpass-page .myform{
+    width: 45%;
+}
 
-.myForm__title {
+.myform__title {
     font-weight: bolder;
     text-align: center;
     color: var(--color-dark-greenblue);
     font-size: var(--title-font);
+}
+
+.myform__text.text--nodisplay {
+    display: none;
 }
 
 /*Text input label and input*/
@@ -81,20 +104,21 @@
 .form__input {
     display: flex;
     border: 1px var(--color-grey) solid;
-    border-radius: 100px;
-    padding: 0 10px;
+    border-radius: 5px;
+    padding-left: 5px;
     margin: 5px 0 10px 0;
     width: 100%;
 }
 
 .form__input--pass {
+    outline: none;
     border: none;
     border-radius: 100px;
     width: 100%;
 }
 
-.register-page .myForm__field {
-    width: 90%;
+.register-page .myform__field {
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -142,24 +166,23 @@
     user-select: none;
 }
 
-.myForm__btns {
+.myform__btns {
     display: flex;
     flex-direction: column;
 }
 
-.btn--register {
+.btn--submit {
     color: var(--color-white);
     background-color: var(--color-dark-greenblue);
     border-radius: 100px;
-    font-size: 20px;
+    font-size: 18px;
     padding: 10px 30px 10px 30px;
     margin: 10px;
     margin-top: 20px;
     align-self: center;
-    box-shadow: 2px 2px 5px var(--color-grey);
 }
 
-.btn--register:hover {
+.btn--submit:hover {
     background-color: var(--color-dark-greenblue-hover);
 }
 
@@ -211,35 +234,34 @@
         height: 100vh;
         grid-template-columns: 1fr 1fr;
     }
-    .register-page .myForm__container{
+    .register-page .myform__container {
         grid-column: 1/3;
     }
     .register-page .background-image {
         background-image: var(--background-image);
     }
-    .register-page .myForm-ctn {
+    .register-page .myform-ctn {
         background-color: var(--color-light-greenblue);
     }
-    .register-page .myForm {
+    .register-page .myform {
         max-width: 600px;
         background-color: var(--color-white);
         display: inline-flex;
         flex-direction: column;
         padding: 20px 80px;
     }
-    .register-page .myForm__title {
+    .register-page .myform__title {
         font-size: 38px;
     }
-    .register-page .myForm__label {
+    .register-page .myform__label {
         font-size: 14px;
     }
-    .register-page .btn--register {
+    .register-page .btn--submit {
         font-size: 27px;
     }
     .register-page .btn--google {
         padding: 4px;
     }
-
 }
 
 @media screen and (max-width:500px)and (min-width:376px) {
@@ -248,8 +270,8 @@
         display: flex;
         background-color: var(--color-white);
     }
-    .register-page .background-image{
-        background:none;
+    .register-page .background-image {
+        background: none;
     }
     .register-page .myform__container {
         background-color: var(--color-white);
@@ -259,7 +281,7 @@
         width: 100%;
         justify-content: center;
     }
-    .register-page .myForm {
+    .register-page .myform {
         width: 100%;
         display: inline;
         padding: 0px 60px;
@@ -267,28 +289,28 @@
         border-radius: 0px;
         animation: 1s moveAnimation ease-in;
     }
-    .register-page .myForm__title {
+    .register-page .myform__title {
         font-size: 36px;
     }
-    .register-page .myForm__label {
+    .register-page .myform__label {
         font-size: 13px;
     }
-    .register-page .btn--register {
+    .register-page .btn--submit {
         font-size: 26px;
     }
     .register-page .btn--google {
         padding: 4px;
     }
 }
-@media screen and (max-width:375.99px)and (min-width:0px){
 
+@media screen and (max-width:375.99px)and (min-width:0px) {
     .register-page .register {
         height: 100vh;
         display: flex;
         background-color: var(--color-white);
     }
-    .register-page .background-image{
-        background:none;
+    .register-page .background-image {
+        background: none;
     }
     .register-page .myform__container {
         height: 100vh;
@@ -297,7 +319,7 @@
         width: 100%;
         justify-content: center;
     }
-    .register-page .myForm {
+    .register-page .myform {
         width: 100%;
         display: inline;
         padding: 0px 60px;
@@ -305,22 +327,19 @@
         border-radius: 0px;
         animation: 1s moveAnimation ease-in;
     }
-
-    .register-page .myForm__title {
+    .register-page .myform__title {
         font-size: 30px;
     }
     .register-page .form__label {
         font-size: 14px;
     }
-    .register-page .btn--register {
+    .register-page .btn--submit {
         font-size: 16px;
     }
     .register-page .btn--google {
         padding: 4px;
     }
-
 }
-
 
 @keyframes moveAnimation {
     0% {
@@ -333,84 +352,35 @@
     }
 }
 
-/*Login page style*/
-
-.login-page .login {
-    height: 100vh;
-    display: grid;
-    flex-direction: row;
-    align-items: center;
-    grid-template-columns: 1fr 1.3fr;
-    animation: moveAnimation 1s ease-in;
-}
 /*register text ref*/
-.login-page .myForm__create{
-    font-size: 16px;
+
+.login-page .forgot__pass {
+    text-decoration: none;
+    font-size: 14px;
     color: var(--color-dark-greenblue);
-    margin-bottom: 40px;
-}
-.login-page .create__link{
-    text-decoration:  none;
-    color: var(--color-medium-greenblue);
+    align-self: flex-end;
 }
 
-.login-page .forgot__pass{
-    text-decoration:  none;
-    font-size: 16px;
-    color: var(--color-dark-greenblue);
-}
-.login-page .myForm__text{
-    margin-top: 0px;   
-}
-
-
-.background-image {
-    background: var(--background-image);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.login-page .myForm__container {
+.login-page .myform__container {
     display: flex;
     justify-content: center;
     grid-column: 2/3;
 }
 
-/*Form input width*/
-.login-page .myForm__field {
-    width: 100%;
+/* Form input width */
+
+.login-page .myform__field {
+    width: 90%;
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
 }
 
-.login-page .myForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 0 15px var(--color-grey);
-    background-color: var(--color-white);
-    border-radius: 10px;
-    padding: 40px 100px;
-    padding-right: 120px;
-    animation: moveAnimation 1s ease-in;
-}
-
-.login-page .myForm__title {
+.login-page .myform__title {
     font-weight: bolder;
     text-align: center;
     color: var(--color-dark-greenblue);
     font-size: var(--title-font);
-}
-
-.login-page .title {
-    font-weight: bolder;
-    text-align: center;
-    color: var(--color-dark-greenblue);
-    font-size: var(--title-font);
-}
-
-.login-page .myForm__input {
-    width: 100%;
 }
 
 .login-page .label {
@@ -432,7 +402,7 @@
     width: 100%;
 }
 
-.login-page .myForm__btn {
+.login-page .myform__btn {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
@@ -450,104 +420,73 @@
     border: 1px #ff0000 solid;
 }
 
-.login-page .btn-login {
-    color: var(--color-white);
-    background-color: var(--color-dark-greenblue);
-    border-radius: 100px;
-    border: none;
-    font-size: 20px;
-    padding: 10px 30px 10px 30px;
-    margin: 10px;
-    align-self: center;
-    box-shadow: 2px 2px 5px var(--color-grey);
+.login-page input[type="password"] {
+    margin-bottom: 0px;
 }
 
-.login-page .icon-visibility {
-    color: var(--color-grey);
-    margin: 0;
-    padding: 0;
+.login-page .forgot-pass--ctn {
+    margin-top: 5px;
 }
 
-.login-page .icon-visibility:hover {
-    color: var(--color-grey-hover);
-    user-select: none;
-}
-
-
-/*Login button properties*/
-
-.login-page .btn--login {
-    margin-right: 0px;
-    color: var(--color-white);
-    background-color: var(--color-dark-greenblue);
-    border-radius: 100px;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    margin: 10px;
-    margin-top: 20px;
-    align-self: center;
-    box-shadow: 2px 2px 5px var(--color-grey);
-}
-
-.login-page .btn--login:hover {
-    background-color: var(--color-dark-greenblue-hover);
-}
 /* Responsive login page*/
+
 /*Tablet responsive login*/
+
 @media screen and (max-width: 1265px) {
     .login-page .register {
         height: 100vh;
         grid-template-columns: 1fr 1fr;
     }
-    .login-page .myForm__container{
+    .login-page .myform__container {
         grid-column: 1/3;
     }
     .login-page .background-image {
         background-image: var(--background-image);
     }
-    .login-page .myForm-ctn {
+    .login-page .myform-ctn {
         background-color: var(--color-light-greenblue);
     }
-    .login-page .myForm {
+    .login-page .myform {
         max-width: 600px;
         background-color: var(--color-white);
         display: inline-flex;
         flex-direction: column;
-        padding: 20px 80px;
     }
-    .login-page .myForm__title {
+    .login-page .myform__field{
+        width: 100%;
+    }
+    .login-page .myform__title {
         font-size: 38px;
     }
-    .login-page .myForm__label {
+    .login-page .myform__label {
         font-size: 14px;
     }
-    .login-page .btn--register {
+    .login-page .btn--submit {
         font-size: 27px;
     }
     .login-page .btn--google {
         padding: 4px;
     }
-
 }
+
 /*responsive to phone*/
+
 @media screen and (max-width:500px)and (min-width:376px) {
     .login-page .register {
         height: 100vh;
         display: flex;
         background-color: var(--color-white);
     }
-    .login-page .background-image{
-        background:none;
+    .login-page .background-image {
+        background: none;
     }
     .login-page .myform__container {
         background-color: var(--color-white);
         display: flex;
-        padding: 60px;
-        padding-right: 70px;
         width: 100%;
         justify-content: center;
     }
-    .login-page .myForm {
+    .login-page .myform {
         width: 100%;
         display: inline;
         padding: 0px 60px;
@@ -555,28 +494,36 @@
         border-radius: 0px;
         animation: 1s moveAnimation ease-in;
     }
-    .login-page .myForm__title {
-        font-size: 36px;
+    .login-page .myform__title {
+        font-size: 40px;
     }
-    .login-page .myForm__label {
+    .login-page .myform__label {
         font-size: 13px;
     }
-    .login-page .btn--register {
+    .login-page .btn--submit {
         font-size: 26px;
     }
     .login-page .btn--google {
         padding: 4px;
     }
+    .login-page .myform__text {
+        display: none;
+    }
+    .myform__text.text--nodisplay {
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
 }
-@media screen and (max-width:375.99px)and (min-width:0px){
 
+@media screen and (max-width:375.99px)and (min-width:0px) {
     .login-page .register {
         height: 100vh;
         display: flex;
         background-color: var(--color-white);
     }
-    .login-page .background-image{
-        background:none;
+    .login-page .background-image {
+        background: none;
     }
     .login-page .myform__container {
         height: 100vh;
@@ -585,7 +532,7 @@
         width: 100%;
         justify-content: center;
     }
-    .login-page .myForm {
+    .login-page .myform {
         width: 100%;
         display: inline;
         padding: 0px 60px;
@@ -593,142 +540,103 @@
         border-radius: 0px;
         animation: 1s moveAnimation ease-in;
     }
-
-    .login-page .myForm__title {
-        font-size: 30px;
-    }
     .login-page .form__label {
         font-size: 14px;
     }
-    .login-page .btn--register {
+    .login-page .btn--submit {
         font-size: 16px;
     }
     .login-page .btn--google {
         padding: 4px;
     }
-    .login-page .create__link::after{
-        content: "\a";
-        white-space: pre;
+    .login-page .myform__text {
+        display: none;
+    }
+    .myform__text.text--nodisplay {
+        display: block;
+        margin: auto;
+        text-align: center;
     }
 }
 
-/*Landing page nav bar*/
 
+/* Responsive reset page*/
 
-.landing-page .header {
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
-    padding: 5px 30px;
+/*responsive to phone*/
+
+@media screen and (max-width:500px)and (min-width:376px) {
+    .resetpass-page .resetpass {
+        height: 100vh;
+        display: flex;
+        background-color: var(--color-white);
+    }
+    .resetpass-page .background-image {
+        background: none;
+    }
+    .resetpass-page .myform__container {
+        background-color: var(--color-white);
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .resetpass-page .myform {
+        width: 100%;
+        display: inline;
+        padding: 0px 60px;
+        box-shadow: none;
+        border-radius: 0px;
+        animation: 1s moveAnimation ease-in;
+    }
+    .resetpass-page .myform__title {
+        font-size: 40px;
+    }
+    .resetpass-page .myform__label {
+        font-size: 13px;
+    }
+    .resetpass-page .btn--submit {
+        font-size: 20px;
+    }
+    .resetpass-page .btn--google {
+        padding: 4px;
+    }
+    
 }
 
-.landing-page .header__nav {
-    padding-left: 30px;
-    flex: 1 1;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-self: center;
+@media screen and (max-width:375.99px)and (min-width:0px) {
+    .resetpass-page.register {
+        height: 100vh;
+        display: flex;
+        background-color: var(--color-white);
+    }
+    .resetpass-page .background-image {
+        background: none;
+    }
+    .resetpass-page .myform__container {
+        height: 100vh;
+        background-color: var(--color-white);
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .resetpass-page .myform {
+        width: 100%;
+        display: inline;
+        padding: 0px 60px;
+        box-shadow: none;
+        border-radius: 0px;
+        animation: 1s moveAnimation ease-in;
+    }
+    .resetpass-page .form__label {
+        font-size: 14px;
+    }
+    .resetpass-page .btn--submit {
+        font-size: 16px;
+    }
+    .resetpass-page .btn--google {
+        padding: 4px;
+    }
+    
 }
-
-.landing-page .header__brand {
-    display: inline-flex;
-    flex: .25 1;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 40px;
-
-}
-
-.landing-page .nav__brand-logo {
-    width: 36px;
-    margin-right: 5px;
-}
-
-.landing-page .nav__brand-text-logo {
-    font-family: 'Oxygen', sans-serif;
-    color: #3CAD7B;
-    margin: 0px;
-    font-size: 33px;
-    font-weight: bold;
-    color: #57CC99;
-    filter: drop-shadow(-3px 0px 0px #267072);
-    letter-spacing: 2px;
-}
-
-.landing-page .option--no-style {
-    list-style: none;
-}
-
-.landing-page .link--no-deco {
-    text-decoration: none;
-}
-.landing-page .link-clr{
-    color: #3CAD7B;
-}
-
-/*search bar*/
-
-.landing-page .header__search-bar {
-    flex: 1 1;
-    align-self: center;
-    display: inline-flex;
-    border: 1px solid #3CAD7B;
-    border-radius: 5px;
-    box-shadow: inset ;
-    outline: none;
-    margin-left: 0px;
-}
-
-.landing-page .search-bar__input{
-    width: 100%;
-    border-top-left-radius:0px;
-    border-bottom-left-radius: 0px;
-    outline: none;
-    border: none;
-    border-radius: 5px ;
-}
-
-.landing-page .search-bar__input::placeholder{
-    color: #3CAD7B;
-    text-align: center;   
-}
-
-.landing-page .search-bar__btn {
-    background-color: #3CAD7B;
-    display: flex;
-    border: none;
-    outline: none;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-}
-
-.landing-page .clr-white{
-    color: #fff;
-    text-align: center;
-}
-
-/*Option btn style*/
-
-.landing-page .nav__option-link{
-    align-items: center;
-    display: flex;
-}
-.landing-page .btn--style-nb{
-    border-radius: 3px;
-    border: 1px solid #3CAD7B;
-    padding: 5px;
-}
-
-.landing-page .btn--style-b{
-    color: #fff;
-    background-color: #3CAD7B;
-    border-radius: 3px;
-    border: 1px solid #3CAD7B;
-    padding: 5px;
-}
-
-
 
 /* Google icons into the css file*/
 

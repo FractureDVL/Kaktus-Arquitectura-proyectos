@@ -1,4 +1,9 @@
-@import "css/style.css"
+* {
+    font-family: 'Quicksand';
+}
+
+/*Landing page nav bar*/
+
 .landing-page .header {
     display: flex;
     flex-direction: row;
@@ -11,7 +16,7 @@
     flex: 1 1;
     display: inline-flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-self: center;
 }
 
@@ -21,19 +26,19 @@
     flex-direction: row;
     align-items: center;
     margin-right: 40px;
-
 }
 
 .landing-page .nav__brand-logo {
-    width: 36px;
+    width: 35px;
     margin-right: 5px;
 }
 
 .landing-page .nav__brand-text-logo {
+    text-transform: uppercase;
     font-family: 'Oxygen', sans-serif;
     color: #3CAD7B;
     margin: 0px;
-    font-size: 33px;
+    font-size: 35px;
     font-weight: bold;
     color: #57CC99;
     filter: drop-shadow(-3px 0px 0px #267072);
@@ -47,7 +52,8 @@
 .landing-page .link--no-deco {
     text-decoration: none;
 }
-.landing-page .link-clr{
+
+.landing-page .link-clr {
     color: #3CAD7B;
 }
 
@@ -57,25 +63,37 @@
     flex: 1 1;
     align-self: center;
     display: inline-flex;
-    border: 1px solid #3CAD7B;
     border-radius: 5px;
-    box-shadow: inset ;
     outline: none;
     margin-left: 0px;
 }
 
-.landing-page .search-bar__input{
+.landing-page .search-bar__form {
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    border-top-left-radius:0px;
-    border-bottom-left-radius: 0px;
-    outline: none;
-    border: none;
-    border-radius: 5px ;
 }
 
-.landing-page .search-bar__input::placeholder{
+.landing-page .search-bar__input {
+    border: 1px solid #CCCCCC;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    width: 100%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.landing-page .input--no-deco::-webkit-search-cancel-button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.landing-page .search-bar__input::placeholder {
     color: #3CAD7B;
-    text-align: center;   
+    text-align: center;
 }
 
 .landing-page .search-bar__btn {
@@ -87,24 +105,26 @@
     border-bottom-left-radius: 2px;
 }
 
-.landing-page .clr-white{
+.landing-page .clr-white {
     color: #fff;
     text-align: center;
 }
 
 /*Option btn style*/
 
-.landing-page .nav__option-link{
+.landing-page .nav__option-link {
+    margin: 0 20px;
     align-items: center;
     display: flex;
 }
-.landing-page .btn--style-nb{
+
+.landing-page .btn--style-nb {
     border-radius: 3px;
     border: 1px solid #3CAD7B;
     padding: 5px;
 }
 
-.landing-page .btn--style-b{
+.landing-page .btn--style-b {
     color: #fff;
     background-color: #3CAD7B;
     border-radius: 3px;
