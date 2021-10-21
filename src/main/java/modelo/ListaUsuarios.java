@@ -5,20 +5,20 @@ import java.util.ArrayList;
 
 public class ListaUsuarios {
     
-    private ArrayList<Usuario> lista = new ArrayList();
+    private ArrayList<UsuarioDTO> lista = new ArrayList();
 
     public ListaUsuarios() {
     }
     
-    public void agregarUsuario(Usuario u){
+    public void agregarUsuario(UsuarioDTO u){
         lista.add(u);
     }
     
-    public ArrayList<Usuario> getLista() {
+    public ArrayList<UsuarioDTO> getLista() {
         return lista;
     }
     
-    public void setLista(ArrayList<Usuario> lista) {
+    public void setLista(ArrayList<UsuarioDTO> lista) {
         this.lista = lista;
     }
 

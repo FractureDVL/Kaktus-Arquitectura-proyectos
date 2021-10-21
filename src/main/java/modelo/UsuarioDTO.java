@@ -2,17 +2,18 @@ package modelo;
 
 import java.util.Objects;
 
-public class Usuario {
+public class UsuarioDTO {
     
     private String name;
     private String email;
     private String user;
     private String password;
+    private String role;
 
-    public Usuario() {
+    public UsuarioDTO() {
     }
 
-    public Usuario(String name, String email, String user, String password) {
+    public UsuarioDTO(String name, String email, String user, String password) {
         this.name = name;
         this.email = email;
         this.user = user;
@@ -77,7 +78,7 @@ public class Usuario {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Usuario other = (Usuario) obj;
+        final UsuarioDTO other = (UsuarioDTO) obj;
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
