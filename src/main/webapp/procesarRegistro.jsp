@@ -3,7 +3,7 @@
     Created on : 6 oct. 2021, 9:02:02 p. m.
     Author     : Diego Pedrozo
 --%>
-<%@page import="modelo.Usuario"%>
+<%@page import="modelo.UsuarioDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="gestion" class="modelo.ListaUsuarios" scope="session"/>
 <%
@@ -12,7 +12,7 @@
     String user = request.getParameter("user");
     String password = request.getParameter("password");
     
-    Usuario u = new Usuario(name, email, user, password);
+    UsuarioDTO u = new UsuarioDTO(name, email, user, password);
     gestion.agregarUsuario(u);
 %>
 <!DOCTYPE html>
