@@ -27,10 +27,30 @@ public class TestConnection {
                 System.out.println("Usuario :"+resultado.getString(2)+""
                         + "       " + "Email:"+resultado.getString(3));
             
+               
             }
         } catch (SQLException ex) {
-            Logger.getLogger(TestConnection.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                System.out.println("-----------------------------------------------");
+                System.out.println("No se pudo conectar con la base de datos");
+                System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣤\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿\n" +
+                                    "⠀⠀⣶⠀⠀⣀⣤⣶⣤⣉⣿⣿⣤⣀\n" +
+                                    "⠤⣤⣿⣤⣿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣀\n" +
+                                    "⠀⠛⠿⠀⠀⠀⠀⠉⣿⣿⣿⣿⣿⠉⠛⠿⣿⣤\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠀⠿⣿⣿⣿⠛⠀⠀⠀⣶⠿\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠀⣀⣿⣿⣿⣿⣤⠀⣿⠿\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⣶⣿⣿⣿⣿⣿⣿⣿⣿\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠿⣿⣿⣿⣿⣿⠿⠉⠉\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠉⣿⣿⣿⣿⠿\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠉\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠀⣛⣿⣭⣶⣀\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠉⠛⣿\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⣿⣿\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣉⠀⣶⠿\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠀⣶⣿⠿\n" +
+                                    "⠀⠀⠀⠀⠀⠀⠀⠛⠿⠛");
+                                            }
 
     }
 
