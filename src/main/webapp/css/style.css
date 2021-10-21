@@ -53,6 +53,7 @@
 /*login text ref*/
 
 .myform__text {
+    margin-bottom: 30px;
     color: var(--color-dark-greenblue);
     align-self: flex-start;
 }
@@ -84,6 +85,7 @@
 }
 
 .myform__title {
+    margin-bottom: 10px;
     font-weight: bolder;
     text-align: center;
     color: var(--color-dark-greenblue);
@@ -588,6 +590,7 @@
         animation: 1s moveAnimation ease-in;
     }
     .resetpass-page .myform__title {
+        margin:0;
         font-size: 40px;
     }
     .resetpass-page .myform__label {
