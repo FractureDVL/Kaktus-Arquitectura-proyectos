@@ -4,10 +4,12 @@ import java.util.Objects;
 
 public class UsuarioDTO {
     
+    private int id;
     private String name;
     private String email;
     private String user;
     private String password;
+    private String imgUrl;
     private String role;
 
     public UsuarioDTO() {
@@ -50,6 +52,30 @@ public class UsuarioDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     @Override
