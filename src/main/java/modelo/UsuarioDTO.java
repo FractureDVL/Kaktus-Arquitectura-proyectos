@@ -11,10 +11,10 @@ public class UsuarioDTO {
     private String password;
     private String imgUrl;
     private String role;
-
+    
     public UsuarioDTO() {
     }
-
+    
     public UsuarioDTO(String name, String email, String user, String password) {
         this.name = name;
         this.email = email;
