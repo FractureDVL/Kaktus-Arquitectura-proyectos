@@ -43,13 +43,6 @@ public class UsuarioDAO implements UsuarioServices{
                     
                     break;
                 }
-//                case 2: {
-//
-//                    ps = con.prepareCall(SQL_UPDATE_PASS);
-//                    ps.setString(5, u.getPassword());
-//                    break;
-//
-//                }
             }
             registros = ps.executeUpdate();
 
