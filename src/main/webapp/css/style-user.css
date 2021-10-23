@@ -1,0 +1,45 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+.text-green{
+    color: #1B1B1B;
+}
+.sz-20{
+    font-size: 25px;
+}
+.clr-green{
+    color: #399A70;
+}
+
+
+/* Google icons into the css file*/
+
+@font-face {
+    font-family: 'Material Icons Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v80/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
+}
+
+.material-icons-outlined {
+    font-family: 'Material Icons Outlined';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
