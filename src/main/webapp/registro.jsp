@@ -24,9 +24,9 @@
     <div class="register background-image">
 
         <div class="myform__container">
-            <form class="myform" action="<%=request.getContextPath()%>/register" method="POST">
+            <form class="myform" action="<%=request.getContextPath()%>/register?accion=insertar" method="POST">
                 <h1 class="myform__title">Crear cuenta</h1>
-                <p class="myform__text">¿Ya tienes cuenta? <a class="text__link" href="login.html">Inicia sesión.</a></p>
+                <p class="myform__text">¿Ya tienes cuenta? <a class="text__link" href="login.jsp">Inicia sesión.</a></p>
                 <div class="myform__field">
                     <label class="form__label" for="name">Nombre</label>
                     <input class="form__input form__input-contain input--no-outline" type="text" name="name" id="name"
