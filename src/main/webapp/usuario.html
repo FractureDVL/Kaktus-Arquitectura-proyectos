@@ -21,47 +21,78 @@
 
 <body class="user-page">
 
-    <header class="header">
-        <a class="header__brand link--no-deco" href="index.html">
+    <!-- <header class="header">
+        <input type="search" placeholder="Busca un proyecto :)">        
+
+    </header> -->
+
+    <nav class="aside_nav">
+        <a class="aside_brand link--no-deco" href="index.html">
             <img class="brand-logo" src="assets/img/Kaktus2.svg" alt="kaktus logo">
             <p class="brand-text-logo">kaktus</p>
         </a>
 
-    </header>
+        <ul class="menu dashboard">
+            <li class="label-menu">Dashboard</li>
+            <li class="option-menu"> 
+                <a href=""> 
+                    <span class="material-icons-outlined sz-icon clr-icon">dashboard</span>
+                    <span class="sz-text clr-text">Mis Proyectos</span>
+                </a>
+            </li>
 
-    <nav class="aside_nav">
-        <ul class="dashboard">
-            <li>Dashboard</li>
-            <li> <a href=""> <span class="material-icons-outlined sz-20 clr-green">dashboard</span><span class="text-green sz-20">Mis Proyectos</span></a></li>
-            <li> <a href=""> <span class="material-icons-outlined sz-20 clr-green">explore</span><span class="text-green sz-20">Explorar</span></a></li>
-            <li> <a href=""> <span class="material-icons-outlined sz-20 clr-green">file_upload</span><span class="text-green sz-20">Subir proyecto</span></a></li>
-        </ul>
-        <ul>
-            <li>Account</li>
-            <li><a href=""> <span class="material-icons-outlined sz-20 clr-green">notifications</span><span class="text-green sz-20">Notificaciones</span></a></li>
-            <li><a href=""> <span class="material-icons-outlined sz-20 clr-green">settings</span><span class="text-green sz-20">Configuracion</span></a></li>
+            <li class="option-menu"> 
+                <a  href=""> 
+                    <span class="material-icons-outlined sz-icon clr-icon">explore</span>
+                    <span class="sz-text clr-text">Explorar</span>
+                </a>
+            </li>
+
+            <li class="option-menu"> 
+                <a  href=""> 
+                    <span class="material-icons-outlined sz-icon clr-icon">file_upload</span>
+                    <span class="sz-text clr-text">Subir proyecto</span>
+                </a>
+            </li>
         </ul>
 
-        <div> <img src="assets/user_img/user_default.png" alt="user photo">
-            <p>
-                <span>Peppa pig</span>
-                <span>#3441</span>
+        <ul class="menu account">
+            <li class="label-menu">Account</li>
+            <li class="option-menu">
+                <a  href=""> 
+                    <span class="material-icons-outlined sz-icon clr-icon">notifications</span>
+                    <span class="sz-text clr-text">Notificaciones</span>
+                </a>
+            </li>
+            <li class="option-menu">
+                <a href=""> 
+                    <span class="material-icons-outlined sz-icon clr-icon">settings</span>
+                    <span class=" sz-text clr-text">Configuracion</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="user-info pos-last"> <img class="user-photo" src="assets/img/user-photo.jpg" alt="user photo" width="90px" height="auto">
+            <p class="user-text-info">
+                <span class="span-name">Peppa pig</span>
+                <span class="span-code">#3441</span>
             </p>
         </div>
 
-        <div>
-            <button type="submit" onclick=""><span class="material-icons-outlined">logout</span><span>Cerrar sesion</span></button>
+        <div class="btn-container pos-last">
+
+            <button class="logout-btn" type="submit" onclick=""><span class="material-icons-outlined">logout</span>
+                <span>Cerrar sesion</span>
+            </button>
         </div>
 
     </nav>
-    <section class="section-projects">
+    <!-- <main class="section-projects">
 
         <h1>Mis proyectos</h1>
         <div>aqui va un proyecto</div>
 
-    </section>
-
+    </main> -->
 
 </body>
-
 </html>

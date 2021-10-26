@@ -5,20 +5,133 @@ body {
 li {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
-.text-green{
-    color: #1B1B1B;
+/* Logo style*/
+
+.aside_brand {
+    display: flex;
 }
-.sz-20{
-    font-size: 25px;
+
+.brand-text-logo {
+    text-transform: uppercase;
+    font-family: 'Oxygen', sans-serif;
+    color: #3CAD7B;
+    margin: 0px;
+    font-weight: bold;
+    color: #57CC99;
+    filter: drop-shadow(-3px 0px 0px #267072);
+    letter-spacing: 2px;
+    font-size: 35px;
 }
-.clr-green{
+
+.brand-logo {
+    width: 35px;
+    margin-right: 10px;
+}
+
+.sz-text, .sz-icon {
+    font-size: 1.5em;
+}
+
+.clr-icon {
     color: #399A70;
 }
 
+.clr-text {
+    color: rgb(24, 24, 24);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+}
+
+.aside_nav ul {
+    padding: 0;
+}
+
+.aside_nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 0;
+    position: fixed;
+    left: 0;
+    border: 1px solid #808080;
+    height: 100vh;
+}
+
+.section-projects {}
+
+.user-photo {
+    margin: auto;
+    border-radius: 100px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.menu.dashboard{
+    margin-top : 3em;
+}
+
+.span-name {
+    display: block;
+    text-align: center;
+}
+
+.span-code {
+    display: block;
+    text-align: center;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.option-menu {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.option-menu span[material-icons-outlined] {
+    display: flex;
+    align-self: center;
+}
+
+.logout-btn {
+    display: flex;
+    font-size: 1.3em;
+    padding: 10px 15px;
+    align-items: center;
+    color: #fff;
+    background-color: #389A6F;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+}
+
+.logout-btn:hover {
+    background-color: #36946b;
+}
+
+.aside_brand .pos-last.user-info {
+    margin-bottom: 0;
+}
+
+.aside_nav .pos-last {
+    margin-bottom: auto;
+}
 
 /* Google icons into the css file*/
 
