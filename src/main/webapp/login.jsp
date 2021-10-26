@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Login Kaktus Architecture">
     <meta name="keywords" content="">
-    <!--Estándar-->
+    <!--Estï¿½ndar-->
     <link rel="stylesheet" href="css/normalize.css">
     <!--Iconos google-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rels="stylesheet">
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="assets/img/Kaktus2.svg" type="image/x-icon">
 
-    <title> Kaktus | Iniciar sesión</title>
+    <title> Kaktus | Iniciar sesiï¿½n</title>
 </head>
 
 <body class="login-page">
@@ -29,8 +29,8 @@
         <div class="myform__container">
             <form class="myform" action="<%=request.getContextPath()%>/register?accion=login" method="POST">
 
-                <h1 class="myform__title">Iniciar sesión</h1>
-                <p class="myform__text"><span>¿Aún no tienes cuenta?</span><a class="text__link" href="register.jsp">
+                <h1 class="myform__title">Iniciar sesiï¿½n</h1>
+                <p class="myform__text"><span>ï¿½Aï¿½n no tienes cuenta?</span><a class="text__link" href="register.jsp">
                         Crea una cuenta.</a></p>
 
                 <div class="myform__field">
@@ -38,10 +38,10 @@
                     <input class="form__input form__input-contain" type="text" name="user" id="user" required>
                 </div>
                 <div class="myform__field">
-                    <label class="form__label" for="password">Contraseña</label>
+                    <label class="form__label" for="password">Contraseï¿½a</label>
                     <input class="form__input form__input-contain input--no-outline" type="password" name="password"
                         id="password" required>
-                    <p class="forgot-pass--ctn"><a class="forgot__pass" href="reset_password.html">¿Olvidaste tu contraseña?</a></p>
+                    <p class="forgot-pass--ctn"><a class="forgot__pass" href="reset_password.html">ï¿½Olvidaste tu contraseï¿½a?</a></p>
 
                 </div>
                 <div class="myform__btns">
@@ -49,7 +49,7 @@
                     <button class="btn--google btn--noBorder btn--noOutline" type="button"><img class="img-google"
                             src="assets/img/google.svg" alt="Login-google" width="50px"></button>
 
-                    <p class="myform__text text--nodisplay"><span>¿Aún no tienes cuenta?</span><br><a class="text__link"
+                    <p class="myform__text text--nodisplay"><span>ï¿½Aï¿½n no tienes cuenta?</span><br><a class="text__link"
                             href="register.html"> Crea una cuenta.</a></p>
                 </div>
             </form>
