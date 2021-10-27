@@ -3,7 +3,7 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kaktus Register Architecture">
@@ -26,7 +26,7 @@
         <div class="myform__container">
             <form class="myform" action="<%=request.getContextPath()%>/register?accion=insertar" method="POST">
                 <h1 class="myform__title">Crear cuenta</h1>
-                <p class="myform__text">�Ya tienes cuenta? <a class="text__link" href="login.jsp">Inicia sesi&oacute;n.</a></p>
+                <p class="myform__text">¿Ya tienes cuenta? <a class="text__link" href="login.jsp">Inicia sesión.</a></p>
                 <div class="myform__field">
                     <label class="form__label" for="name">Nombre</label>
                     <input class="form__input form__input-contain input--no-outline" type="text" name="name" id="name"
@@ -47,12 +47,12 @@
 
 
                 <div class="myform__field">
-                    <label class="form__label" for="password">Contrase&ntilde;a</label>
+                    <label class="form__label" for="password">Contraseña</label>
                     <input class="form__input form__input-contain input--no-outline" type="password" name="password" id="password"
                         required>
                 </div>
                 <div class="myform__field">
-                    <label class="form__label" for="confirm-password">Confirmar contrase&ntilde;a</label>
+                    <label class="form__label" for="confirm-password">Confirmar contraseña</label>
                     <input class="form__input form__input-contain input--no-outline" type="password" name="confirm-password" id="confirm-password"
                         required>
                 </div>
