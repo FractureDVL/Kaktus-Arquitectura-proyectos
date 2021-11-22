@@ -34,24 +34,24 @@
 
         <ul class="menu dashboard">
             <li class="label-menu">Dashboard</li>
-            <li class="option-menu"> 
-                <a href=""> 
+            <li class="option-menu">
+                <a class="option-link" href="">
                     <span class="material-icons-outlined sz-icon clr-icon">dashboard</span>
-                    <span class="sz-text clr-text">Mis Proyectos</span>
+                    <span class="sz-text clr-text space-text">Mis Proyectos</span>
                 </a>
             </li>
 
-            <li class="option-menu"> 
-                <a  href=""> 
+            <li class="option-menu">
+                <a class="option-link" href="">
                     <span class="material-icons-outlined sz-icon clr-icon">explore</span>
-                    <span class="sz-text clr-text">Explorar</span>
+                    <span class="sz-text clr-text space-text">Explorar</span>
                 </a>
             </li>
 
-            <li class="option-menu"> 
-                <a  href=""> 
+            <li class="option-menu">
+                <a class="option-link" href="">
                     <span class="material-icons-outlined sz-icon clr-icon">file_upload</span>
-                    <span class="sz-text clr-text">Subir proyecto</span>
+                    <span class="sz-text clr-text space-text">Subir proyecto</span>
                 </a>
             </li>
         </ul>
@@ -59,20 +59,21 @@
         <ul class="menu account">
             <li class="label-menu">Account</li>
             <li class="option-menu">
-                <a  href=""> 
+                <a class="option-link" href="">
                     <span class="material-icons-outlined sz-icon clr-icon">notifications</span>
-                    <span class="sz-text clr-text">Notificaciones</span>
+                    <span class="sz-text clr-text space-text">Notificaciones</span>
                 </a>
             </li>
             <li class="option-menu">
-                <a href=""> 
+                <a class="option-link" href="">
                     <span class="material-icons-outlined sz-icon clr-icon">settings</span>
-                    <span class=" sz-text clr-text">Configuracion</span>
+                    <span class=" sz-text clr-text space-text">Configuracion</span>
                 </a>
             </li>
         </ul>
 
-        <div class="user-info pos-last"> <img class="user-photo" src="assets/img/user-photo.jpg" alt="user photo" width="90px" height="auto">
+        <div class="user-info pos-last"> <img class="user-photo" src="assets/img/user-photo.jpg" alt="user photo"
+                width="90px" height="auto">
             <p class="user-text-info">
                 <span class="span-name">Peppa pig</span>
                 <span class="span-code">#3441</span>
@@ -87,12 +88,42 @@
         </div>
 
     </nav>
-    <!-- <main class="section-projects">
+    <div class="search-bar--content">
+        
+        <form class="search-bar__form" action="search.jsp">
+            <button class="search-bar__btn" type="submit">
+                <span class="material-icons-outlined clr-white">search</span>
+            </button>
 
-        <h1>Mis proyectos</h1>
-        <div>aqui va un proyecto</div>
+            <input class="search-bar__input input--no-deco" type="search" name="" id="" placeholder="Buscar...">
+        </form>
+    
+    </div>
+    <main class="section-projects">
 
-    </main> -->
+        <h1 class="hero-text">Mis proyectos</h1>
+        
+        <div class="content-projects">
+
+            <div class="project add-project"> <span class="material-icons-outlined">add</span></div>
+            <!-- <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div> -->
+
+        </div>
+
+    </main>
 
 </body>
+
 </html>

@@ -46,7 +46,7 @@ a {
 }
 
 .header {
-    position: fixed;
+    
     top: 0;
     left: 0;
     height: 80px;
@@ -62,14 +62,61 @@ a {
     flex-direction: column;
     padding: 20px;
     margin-left: 0;
-    position: fixed;
     left: 0;
+    position: fixed;
     border: 1px solid #808080;
+    min-width: 245px;
+    width: 16%;
     height: 100vh;
+    box-sizing: border-box;
 }
 
-.section-projects {}
+/*Section of projects and setting*/
 
+.section-projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 245px;
+    width: 84%;
+    height: 100%;
+}
+.hero-text{
+    text-align: center;
+    color:#347D5D;
+}
+.content-projects{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: space-evenly;
+     height: 100%;
+    /*background-color: rgb(205, 255, 238); */
+    padding: 20px;
+}
+.project{
+
+    display: inline;
+    background-color: #389A6F;
+    width: 290px;
+    height: 220px;
+    border-radius: 10px;
+    margin: 10px;
+}
+.add-project{
+    justify-self: flex-start;
+    align-self: baseline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-project span{
+    font-size: 140px;
+    color: #fff;
+}
+
+/*settings nav bar*/
 .user-photo {
     margin: auto;
     border-radius: 100px;
@@ -100,8 +147,20 @@ a {
 }
 
 .option-menu {
+    display: flex;
+    align-self: center;
     margin-top: 15px;
     margin-bottom: 15px;
+}
+.option-link{
+
+    display: flex;
+    align-self: center;
+    
+}
+.space-text{
+
+    margin-left: 10px;
 }
 
 .option-menu span[material-icons-outlined] {
