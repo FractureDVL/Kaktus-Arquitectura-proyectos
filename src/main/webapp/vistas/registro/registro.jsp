@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kaktus Register Architecture">
     <!--Estandar-->
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../css/normalize.css">
     <!--Fuentes google-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <!--Mi css-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="shortcut icon" href="assets/img/Kaktus2.svg" type="image/x-icon">
     <title>Kaktus | Registro</title>
 </head>
@@ -26,7 +26,7 @@
         <div class="myform__container">
             <form class="myform" action="<%=request.getContextPath()%>/register?accion=insertar" method="POST">
                 <h1 class="myform__title">Crear cuenta</h1>
-                <p class="myform__text">¿Ya tienes cuenta? <a class="text__link" href="login.jsp">Inicia sesi&oacute;n.</a></p>
+                <p class="myform__text">¿Ya tienes cuenta? <a class="text__link" href="../login/login.jsp">Inicia sesi&oacute;n.</a></p>
                 <div class="myform__field">
                     <label class="form__label" for="name">Nombre</label>
                     <input class="form__input form__input-contain input--no-outline" type="text" name="name" id="name"
@@ -59,9 +59,9 @@
                 <div class="myform__btns">
                     <button class="btn--submit btn--noBorder btn--noOutline" type="submit"
                         onclick="return validate()">Registrarse</button>
-                    <script src="js/validation.js"></script>
+                    <script src="../../js/validation.js"></script>
                     <button class="btn--google btn--noBorder btn--noOutline" type="button"><img class="img-google"
-                            src="assets/img/google.svg" alt="SignUp-google" width="50px"></button>
+                            src="../../assets/img/google.svg" alt="SignUp-google" width="50px"></button>
                 </div>
             </form>
         </div>

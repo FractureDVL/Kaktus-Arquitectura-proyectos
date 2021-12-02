@@ -57,7 +57,7 @@ public class UsuarioController extends HttpServlet {
         
         u.crearUsuario(usuario);
         
-        response.sendRedirect("registro.jsp");
+        response.sendRedirect("vistas/login/login.jsp");
     }
     
     private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -68,10 +68,10 @@ public class UsuarioController extends HttpServlet {
         usuario.setPassword(password);
         r = u.login(usuario);
         if(r==1){
-            response.sendRedirect("index.html");
+            response.sendRedirect("vistas/usuario/usuario.html");
         }
         else{ 
-            response.sendRedirect("registro.jsp");
+            response.sendRedirect("vistas/registro/registro.jsp");
         }
     }
 }
