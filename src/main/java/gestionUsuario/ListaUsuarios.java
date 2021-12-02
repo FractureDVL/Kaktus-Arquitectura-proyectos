@@ -1,5 +1,6 @@
-package modelo;
+package gestionUsuario;
 
+import entidades.UsuarioDTO;
 import java.util.ArrayList;
 
 

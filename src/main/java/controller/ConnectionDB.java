@@ -10,7 +10,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 
 public class ConnectionDB {
     
-    private static final  String db = "kaktus";
+    private static final String db = "kaktus";
     public static final String JDBC_URL = "jdbc:mariadb://localhost:3306/" + db + "?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     public static final String BD_USERNAME = "root";
     public static final String BD_PASSWORD = "admin";
@@ -25,7 +25,7 @@ public class ConnectionDB {
         return ds;
     }
     
-    public static Connection getConnection() throws SQLException{
+    public static Connection getConnection(String c) throws SQLException{
         try{
             Class.forName("org.mariadb.jdbc.Driver");
         }

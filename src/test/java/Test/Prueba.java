@@ -2,7 +2,7 @@
 package Test;
 
 import java.util.ArrayList;
-import modelo.UsuarioDTO;
+import entidades.UsuarioDTO;
 
 public class Prueba {
     
