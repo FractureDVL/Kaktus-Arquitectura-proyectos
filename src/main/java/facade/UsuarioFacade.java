@@ -21,23 +21,27 @@ public class UsuarioFacade {
         usuarioNegocio = new UsuarioNegocio();
     }
     
-    public List<UsuarioDTO> getUsuarios(){
-        return usuarioNegocio.getUsuarios();
-    }
-    
-    public boolean registrarJugador(UsuarioDTO usuario){
-        return usuarioNegocio.registrarUsuario(usuario);
+    public List<UsuarioDTO> buscarUsuarios(){
+        return usuarioNegocio.buscarUsuarios();
     }
     
     public UsuarioDTO buscarUsuario(int id){
         return usuarioNegocio.buscarUsuario(id);
     }
     
-    public int eliminarJugador(UsuarioDTO usuario){
+    public int eliminarUsuario(UsuarioDTO usuario){
         return usuarioNegocio.eliminarUsuario(usuario);
     }
     
-    public int actualizar(UsuarioDTO usuario){
+    public int actualizarUsuario(UsuarioDTO usuario){
         return usuarioNegocio.actualizarUsuario(usuario);    
+    }
+    
+    public boolean registrarUsuario(UsuarioDTO usuario){
+        return usuarioNegocio.registrarUsuario(usuario);
+    }
+    
+    public int iniciarSesion(UsuarioDTO usuario){
+        return usuarioNegocio.iniciarSesion(usuario);
     }
 }

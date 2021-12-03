@@ -13,7 +13,7 @@ public class ConnectionDB {
     private static final String db = "kaktus";
     public static final String JDBC_URL = "jdbc:mariadb://localhost:3306/" + db + "?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     public static final String BD_USERNAME = "root";
-    public static final String BD_PASSWORD = "admin";
+    public static final String BD_PASSWORD = "root";
 
     public static DataSource getDataSource(){
         BasicDataSource ds = new BasicDataSource();

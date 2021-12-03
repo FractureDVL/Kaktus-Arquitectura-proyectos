@@ -11,31 +11,30 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioNegocio implements Serializable{
-    
+public class UsuarioNegocio implements Serializable {
+
     private UsuarioDAO usuariodao;
-    
 
     //Contructor
     public UsuarioNegocio() {
         usuariodao = new UsuarioDAO();
     }
-    
+
     //Metodo get usuarios
-    public List<UsuarioDTO> getUsuarios(){
+    public List<UsuarioDTO> buscarUsuarios() {
         List<UsuarioDTO> usuarios = new ArrayList<UsuarioDTO>();
-        
+
         try {
             usuarios = usuariodao.buscarUsuarios();
         } catch (Exception e) {
             e.printStackTrace();
-            usuarios=null;
+            usuarios = null;
         }
-        
+
         return usuarios;
     }
-    
-    public boolean registrarUsuario(UsuarioDTO usuario){
+
+    public boolean registrarUsuario(UsuarioDTO usuario) {
         boolean rta = false;
         try {
             rta = usuariodao.registrarUsuario(usuario);
@@ -44,8 +43,8 @@ public class UsuarioNegocio implements Serializable{
         }
         return rta;
     }
-    
-    public UsuarioDTO buscarUsuario(int id){
+
+    public UsuarioDTO buscarUsuario(int id) {
         UsuarioDTO usuario = new UsuarioDTO();
         try {
             usuario = usuariodao.buscarUsuario(id);
@@ -55,33 +54,46 @@ public class UsuarioNegocio implements Serializable{
         }
         return usuario;
     }
-    
-    public int eliminarUsuario(UsuarioDTO usuario){
-        int rta=0;
-        
-        try{
-            rta = usuariodao.eliminarUsuario(usuario);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return rta;                
-    }
-    
-    
-    public int actualizarUsuario(UsuarioDTO usuario){
-       
+
+    public int eliminarUsuario(UsuarioDTO usuario) {
         int rta = 0;
-        
-        try{
-            
-            rta = usuariodao.actualizarUsuario(usuario);
-        
-        }catch(Exception e){
-        
+
+        try {
+            rta = usuariodao.eliminarUsuario(usuario);
+        } catch (Exception e) {
             e.printStackTrace();
-        
         }
-        return rta; 
+        return rta;
     }
-    
+
+    public int actualizarUsuario(UsuarioDTO usuario) {
+
+        int rta = 0;
+
+        try {
+
+            rta = usuariodao.actualizarUsuario(usuario);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+        return rta;
+    }
+
+    public int iniciarSesion(UsuarioDTO usuario) {
+
+        int rta = 0;
+
+        try {
+
+            rta = usuariodao.iniciarSesion(usuario);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return rta;
+    }
 }

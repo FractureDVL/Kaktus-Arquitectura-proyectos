@@ -3,9 +3,9 @@
     Created on : 6 oct. 2021, 9:02:02 p. m.
     Author     : Diego Pedrozo
 --%>
-<%@page import="modelo.UsuarioDTO"%>
+<%@page import="entidades.UsuarioDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="gestion" class="modelo.ListaUsuarios" scope="session"/>
+<jsp:useBean id="facade" class="facade.UsuarioFacade" scope="session"/>
 <%
     String name = request.getParameter("name");
     String email = request.getParameter("email");
@@ -13,7 +13,7 @@
     String password = request.getParameter("password");
     
     UsuarioDTO u = new UsuarioDTO(name, email, user, password);
-    gestion.agregarUsuario(u);
+    facade.registrarUsuario(u);
 %>
 <!DOCTYPE html>
 <html>
@@ -33,6 +33,6 @@
         <p>Email --> <%= u.getEmail()%></p> 
         <p>Usuario --> <%= u.getUser()%></p> 
         <p>Contraseña --> <%= u.getPassword()%></p> 
-        <input type="button" value="Iniciar Sesión" onclick="location.href = 'login.html'">
+        <input type="button" value="Iniciar Sesión" onclick="location.href = '../../index.html'>
     </body>
 </html>

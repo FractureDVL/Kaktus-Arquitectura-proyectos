@@ -21,7 +21,7 @@ public class UsuarioDAO implements Serializable{
     private static final String UPDATE_PHOTO = "UPDATE users SET image_url = ?  WHERE id_user = ?";
     private static final String CREATE_USER = "INSERT INTO `users`(`name`, `email`, `nickname`, `password`) VALUES (?,?,?,?)";
     private static final String UPDATE_PASS = "UPDATE users SET password = ? WHERE id_user = ?";
-    private static final String LOGIN = "SELECT * FROM users WHERE nickname=? and password=?";
+    private static final String LOGIN = "SELECT * FROM users WHERE nickname = ? and password=?";
 
     public List<UsuarioDTO> buscarUsuarios() throws Exception{
         List<UsuarioDTO> usuarios = new ArrayList<UsuarioDTO>();
@@ -78,6 +78,7 @@ public class UsuarioDAO implements Serializable{
         usuario.setImgUrl(rst.getString(6));
         usuario.setRole(rst.getString(7));
         
+        
         rst.close();
         rst = null;
         
@@ -85,7 +86,7 @@ public class UsuarioDAO implements Serializable{
         ps = null;
         
         con.close();
-        con=null;
+        con = null;
         
         return usuario;
     }
@@ -141,7 +142,6 @@ public class UsuarioDAO implements Serializable{
         return registros;
     }
     
-    
     public boolean registrarUsuario(UsuarioDTO usuario) throws Exception{
         boolean rta = false;
         
@@ -150,13 +150,11 @@ public class UsuarioDAO implements Serializable{
         
         PreparedStatement ps = con.prepareStatement(this.CREATE_USER);
         
-        ps.setInt(1, usuario.getId());
-        ps.setString(2, usuario.getName());
-        ps.setString(3, usuario.getEmail());
-        ps.setString(4, usuario.getUser());
-        ps.setString(5, usuario.getPassword());
-        ps.setString(6, usuario.getImgUrl());
-        ps.setString(7, usuario.getRole());
+        ps.setString(1, usuario.getName());
+        ps.setString(2, usuario.getEmail());
+        ps.setString(3, usuario.getUser());
+        ps.setString(4, usuario.getPassword());
+        
         
 
         ps.execute();
@@ -171,7 +169,7 @@ public class UsuarioDAO implements Serializable{
         return rta;  
     }
    
-    public int iniciarSesion(UsuarioDTO u) throws SQLException{
+    public int iniciarSesion(UsuarioDTO usuario) throws SQLException{
        
        ConnectionDB conexion = new ConnectionDB();
        Connection con = conexion.getConnection("UsuarioDAO.iniciarSesion");
@@ -181,14 +179,14 @@ public class UsuarioDAO implements Serializable{
        PreparedStatement ps = con.prepareStatement(this.LOGIN);
        int registros = 0;
        
-       ps.setString(1, u.getUser());
-       ps.setString(2, u.getPassword());
+       ps.setString(1, usuario.getUser());
+       ps.setString(2, usuario.getPassword());
        rs = ps.executeQuery();
            
        while(rs.next()){
           registros = registros+1;
-          u.setUser(rs.getString("nickname"));
-          u.setPassword(rs.getString("password"));
+          usuario.setUser(rs.getString("nickname"));
+          usuario.setPassword(rs.getString("password"));
        }
         
         ps.close();

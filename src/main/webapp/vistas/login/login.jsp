@@ -27,7 +27,7 @@
     <div class="login background-image">
 
         <div class="myform__container">
-            <form class="myform" action="<%=request.getContextPath()%>/register?accion=login" method="POST">
+            <form class="myform" action="procesarLogin.jsp" method="POST">
 
                 <h1 class="myform__title">Iniciar sesi&oacute;n</h1>
                <p class="myform__text"><span>A&uacute;n no tienes cuenta?</span><a class="text__link" href="../registro/registro.jsp"> Crea una cuenta.</a></p>
@@ -50,8 +50,6 @@
 
                     <p class="myform__text text--nodisplay"><span>A&uacute; no tienes cuenta?</span><br><a class="text__link"
                             href="register.html"> Crea una cuenta.</a></p>
-                    
-                    
                 </div>
             </form>
         </div>

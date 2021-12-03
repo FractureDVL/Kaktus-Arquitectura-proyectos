@@ -3,9 +3,24 @@
     Created on : 8 oct. 2021, 11:07:41 a. m.
     Author     : Diego Pedrozo
 --%>
-<%@page import="modelo.Usuario" %>
+<%@page import="facade.UsuarioFacade"%>
+<%@page import="entidades.UsuarioDTO" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="gestion" class="modelo.ListaUsuarios" scope="session"/>
+<jsp:useBean id="facade" class="facade.UsuarioFacade" scope="session"/>
+
+<%
+    String userForm = request.getParameter("user");    
+    String passwordForm = request.getParameter("password");
+    
+    UsuarioDTO usuario = new UsuarioDTO();
+    
+    usuario.setUser(userForm);
+    usuario.setPassword(passwordForm);
+    
+    facade.iniciarSesion(usuario);
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,9 +33,10 @@
         <h1>Wenas</h1>
         <%
             boolean verificar = false;
-            for(Usuario u: gestion.getLista()){
+            for(UsuarioDTO u : facade.buscarUsuarios()){
                 String user = u.getUser();
-                String password =u.getPassword();
+                String password = u.getPassword();
+                
                 String userIngresado = request.getParameter("user");
                 String passwordIngresada = request.getParameter("password");
                 
@@ -57,7 +73,7 @@
                 </thead>
                 <tbody>
                     <%
-                        for (Usuario us : gestion.getLista()){
+                        for (UsuarioDTO us : facade.buscarUsuarios()){
                     %>
                     <tr>
                         <td><%= us.getUser() %></td>
