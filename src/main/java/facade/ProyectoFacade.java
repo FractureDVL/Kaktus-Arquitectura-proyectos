@@ -5,10 +5,36 @@
  */
 package facade;
 
+import entidades.ProyectoDTO;
+import gestionProyectos.ProyectoNegocio;
+import java.util.List;
+
 /**
  *
  * @author joseb
  */
 public class ProyectoFacade {
+        
+    private ProyectoNegocio proyectoNegocio;
+
+    public ProyectoFacade() {
+        proyectoNegocio = new ProyectoNegocio();
+    }
+    
+    public List<ProyectoDTO> buscarProyectos(){
+        return proyectoNegocio.buscarProyectos();
+    }
+    
+    public int eliminarProyecto(ProyectoDTO proyecto){
+        return proyectoNegocio.eliminarProyecto(proyecto);
+    }
+    
+    public int actualizarProyecto(ProyectoDTO proyecto){
+        return proyectoNegocio.actualizarProyecto(proyecto);    
+    }
+    
+    public boolean crearUsuario(ProyectoDTO proyecto){
+        return proyectoNegocio.crearProyecto(proyecto);
+    }
     
 }
