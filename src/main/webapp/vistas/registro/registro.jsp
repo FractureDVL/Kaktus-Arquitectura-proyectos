@@ -1,4 +1,4 @@
-
+<%@page session="true" %>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,7 +24,7 @@
     <div class="register background-image">
 
         <div class="myform__container">
-            <form class="myform" action="procesarRegistro.jsp" method="POST">
+            <form class="myform" action="<%=request.getContextPath()%>/RegistroController?accion=registrar" method="POST">
                 <h1 class="myform__title">Crear cuenta</h1>
                 <p class="myform__text">¿Ya tienes cuenta? <a class="text__link" href="../login/login.jsp">Inicia sesi&oacute;n.</a></p>
                 <div class="myform__field">
