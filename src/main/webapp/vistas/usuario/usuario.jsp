@@ -1,3 +1,11 @@
+
+<%
+    HttpSession sesion =request.getSession();
+    String username = "";
+    
+    username = sesion.getAttribute("username").toString();
+  
+%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,7 +23,7 @@
     <!--Mi css-->
     <link rel="stylesheet" href="../../css/style-user.css">
     <link rel="shortcut icon" href="assets/img/Kaktus2.svg" type="image/x-icon">
-    <title>Kaktus | Registro</title>
+    <title>Kaktus | <%= username%></title>
 
 </head>
 
@@ -75,16 +83,15 @@
         <div class="user-info pos-last"> <img class="user-photo" src="../../assets/img/user-photo.jpg" alt="user photo"
                 width="90px" height="auto">
             <p class="user-text-info">
-                <span class="span-name">Peppa pig</span>
-                <span class="span-code">#3441</span>
+                <span class="span-name"><%= username%></span>
             </p>
         </div>
 
         <div class="btn-container pos-last">
 
-            <button class="logout-btn" type="submit" onclick=""><span class="material-icons-outlined">logout</span>
+            <a class="logout-btn" type="submit" href="<%=request.getContextPath()%>/LoginController?accion=salir"><span class="material-icons-outlined">logout</span>
                 <span>Cerrar sesion</span>
-            </button>
+            </a>
         </div>
 
     </nav>

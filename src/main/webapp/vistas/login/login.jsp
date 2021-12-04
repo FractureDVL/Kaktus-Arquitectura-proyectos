@@ -1,6 +1,5 @@
 
-
-<%@page session="true"%>
+<%@page session="true" %>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -30,7 +29,7 @@
     <div class="login background-image">
 
         <div class="myform__container">
-            <form class="myform" action="/iniciarSesion" method="POST">
+            <form class="myform" action="<%=request.getContextPath()%>/LoginController?accion=ingresar" method="POST">
 
                 <h1 class="myform__title">Iniciar sesi&oacute;n</h1>
                <p class="myform__text"><span>A&uacute;n no tienes cuenta?</span><a class="text__link" href="../registro/registro.jsp"> Crea una cuenta.</a></p>
@@ -47,18 +46,13 @@
 
                 </div>
                 <div class="myform__btns">
-                    <button class="btn--submit btn--noBorder btn--noOutline" type="submit">Ingresar</button>
+                    <input class="btn--submit btn--noBorder btn--noOutline" type="submit" value="Ingresar">
                     <button class="btn--google btn--noBorder btn--noOutline" type="button"><img class="img-google"
                             src="../../assets/img/google.svg" alt="Login-google" width="50px"></button>
 
                     <p class="myform__text text--nodisplay"><span>A&uacute; no tienes cuenta?</span><br><a class="text__link"
                             href="register.html"> Crea una cuenta.</a></p>
                 </div>
-               
-               <%
-                   
-               
-               %>
             </form>
         </div>
     </div>

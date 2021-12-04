@@ -1,6 +1,6 @@
 package dao;
 
-import controller.ConnectionDB;
+import Controller.ConnectionDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -197,28 +197,28 @@ public class UsuarioDAO implements Serializable {
 
     }
 
-    public boolean validarSesion(String user, String password) {
+    public int validarSesion(String user, String password) {
 
         try {
             ConnectionDB conexion = new ConnectionDB();
             Connection con = conexion.getConnection("UsuarioDAO.validarSesion");
             ResultSet rs;
             PreparedStatement ps = con.prepareStatement(this.LOGIN);
-
+            int registros = 0;  
             ps.setString(1, user);
-            ps.setString(1, password);
+            ps.setString(2, password);
             
             rs = ps.executeQuery();
         
             while(rs.next()){
             
-                return true;
+                return 1;
             }
         } catch (SQLException ex) {
 
             ex.printStackTrace(System.out);
         }
 
-        return false;
+        return 0;
     }
 }

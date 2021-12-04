@@ -5,7 +5,7 @@
  */
 package dao;
 
-import controller.ConnectionDB;
+import Controller.ConnectionDB;
 import entidades.ProyectoDTO;
 import java.io.Serializable;
 import java.sql.Connection;
