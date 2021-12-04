@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
@@ -37,12 +38,18 @@ public class LoginController extends HttpServlet {
                 response.sendRedirect("/login/login.jsp?rta=" + rta);
             }
         }
-        if(accion.equals("salir")){
-        
-        response.sendRedirect("/Kaktus-Arquitectura-proyectos/");
-        }
-
     }
     
-    
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        String accion = request.getParameter("accion");
+        HttpSession sesion = request.getSession();
+        
+        if (accion.equals("salir")) {
+            sesion.invalidate();
+        
+            response.sendRedirect("#");
+        }
+    }
 }

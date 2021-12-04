@@ -1,4 +1,4 @@
-
+<%@page session="true" %>
 <%
     HttpSession sesion =request.getSession();
     String username = "";
@@ -89,7 +89,7 @@
 
         <div class="btn-container pos-last">
 
-            <a class="logout-btn" type="submit" href="<%=request.getContextPath()%>/LoginController?accion=salir"><span class="material-icons-outlined">logout</span>
+            <a class="logout-btn" type="submit"  href="<%=request.getContextPath()%>/LoginController?accion=salir"><span class="material-icons-outlined">logout</span>
                 <span>Cerrar sesion</span>
             </a>
         </div>
