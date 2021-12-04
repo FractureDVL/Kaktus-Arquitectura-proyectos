@@ -5,6 +5,7 @@
  */
 package entidades;
 
+import java.sql.Date;
 import java.util.Objects;
 
 /**
@@ -13,18 +14,29 @@ import java.util.Objects;
  */
 public class ProyectoDTO {
     
-    
+    private int id;
     private String titulo;
     private String descripcion;
     private String urlImagen;
+    private Date fechaCreacion;
 
     public ProyectoDTO() {
     }
 
-    public ProyectoDTO(String titulo, String descripcion, String urlImagen) {
+    public ProyectoDTO(int id, String titulo, String descripcion, String urlImagen, Date fechaCreacion) {
+        this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.urlImagen = urlImagen;
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitulo() {
@@ -51,17 +63,19 @@ public class ProyectoDTO {
         this.urlImagen = urlImagen;
     }
 
-    @Override
-    public String toString() {
-        return "Proyecto{" + "titulo=" + titulo + ", descripcion=" + descripcion + ", urlImagen=" + urlImagen + '}';
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 61 * hash + Objects.hashCode(this.titulo);
-        hash = 61 * hash + Objects.hashCode(this.descripcion);
-        hash = 61 * hash + Objects.hashCode(this.urlImagen);
+        hash = 59 * hash + this.id;
+        hash = 59 * hash + Objects.hashCode(this.titulo);
         return hash;
     }
 
@@ -77,17 +91,16 @@ public class ProyectoDTO {
             return false;
         }
         final ProyectoDTO other = (ProyectoDTO) obj;
+        if (this.id != other.id) {
+            return false;
+        }
         if (!Objects.equals(this.titulo, other.titulo)) {
-            return false;
-        }
-        if (!Objects.equals(this.descripcion, other.descripcion)) {
-            return false;
-        }
-        if (!Objects.equals(this.urlImagen, other.urlImagen)) {
             return false;
         }
         return true;
     }
+
     
+
     
 }
