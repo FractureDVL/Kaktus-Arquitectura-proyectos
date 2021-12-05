@@ -33,7 +33,7 @@ public class ProyectoFacade {
         return proyectoNegocio.actualizarProyecto(proyecto);    
     }
     
-    public boolean crearUsuario(ProyectoDTO proyecto){
+    public boolean crearProyecto(ProyectoDTO proyecto){
         return proyectoNegocio.crearProyecto(proyecto);
     }
     

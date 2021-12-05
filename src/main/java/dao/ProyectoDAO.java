@@ -25,13 +25,13 @@ public class ProyectoDAO implements Serializable {
     public static final String GET_IMAGE = "SELECT image_projects.img_url FROM projects INNER JOIN image_projects ON projects.id_project = image_projects.id_project;";
     public static final String DELETE_PROJECT = "DELETE FROM projects WHERE id_project = ?";
     public static final String UPDATE_PROJECT = "UPDATE projects SET name_project = ?, description = ? VALUES (?,?) WHERE id_project = ?";
-    public static final String CREATE_PROJECT = "INSERT INTO projects (name_project, description, create_at) VALUES (?,?,CURRENT_DATE())";
+    public static final String CREATE_PROJECT = "INSERT INTO projects (nickname_user, name_project, description) VALUES (?,?,?)";
 
     public List<ProyectoDTO> buscarProyectos() throws Exception {
         List<ProyectoDTO> proyectos = new ArrayList<ProyectoDTO>();
 
         ConnectionDB conexion = new ConnectionDB();
-        Connection con = conexion.getConnection("UsuarioDAO.buscarProyecto");
+        Connection con = conexion.getConnection("ProyectoDAO.buscarProyectos");
 
         PreparedStatement ps = con.prepareStatement(this.GET_ALL);
         ResultSet rst = ps.executeQuery();
@@ -40,7 +40,7 @@ public class ProyectoDAO implements Serializable {
 
             ProyectoDTO usuario = new ProyectoDTO();
 
-            usuario.setId(rst.getInt("id_user"));
+            usuario.setId(rst.getString("nickname_user"));
             usuario.setTitulo(rst.getString(1));
             usuario.setDescripcion(rst.getString(2));
             usuario.setUrlImagen(rst.getString(3));
@@ -63,14 +63,14 @@ public class ProyectoDAO implements Serializable {
     public int eliminarProyecto(ProyectoDTO proyecto)throws SQLException{
     
         ConnectionDB conexion = new ConnectionDB();
-        Connection con = conexion.getConnection("UsuarioDAO.eliminarProyecto");
+        Connection con = conexion.getConnection("ProyectoDAO.eliminarProyecto");
     
         PreparedStatement sen = null;
         int registros = 0;
         
         try{
             sen = con.prepareStatement(this.DELETE_PROJECT);
-            sen.setInt(1, proyecto.getId());
+            sen.setString(1, proyecto.getId());
             registros = sen.executeUpdate();
         } catch (SQLException ex){
             ex.printStackTrace(System.out);
@@ -88,14 +88,14 @@ public class ProyectoDAO implements Serializable {
     public int actualizarProyecto(ProyectoDTO proyecto) throws Exception{
         
         ConnectionDB conexion = new ConnectionDB();
-        Connection con = conexion.getConnection("JugadorDao.actualizarProyecto");       
+        Connection con = conexion.getConnection("ProyectoDAO.actualizarProyecto");       
         PreparedStatement ps = null;
         
         int registros = 0;
         
         ps = con.prepareStatement(this.UPDATE_PROJECT);
         
-        ps.setInt(3, proyecto.getId());
+        ps.setString(3, proyecto.getId());
         ps.setString(1, proyecto.getTitulo());
         ps.setString(2, proyecto.getDescripcion());
         
@@ -114,17 +114,15 @@ public class ProyectoDAO implements Serializable {
         boolean rta = false;
         
         ConnectionDB conexion = new ConnectionDB();
-        Connection con = conexion.getConnection("UsuarioDAO.crearProyecto");
+        Connection con = conexion.getConnection("ProyectoDAO.crearProyecto");
         
         PreparedStatement ps = con.prepareStatement(this.CREATE_PROJECT);
         
-        ps.setString(1, proyecto.getTitulo());
-        ps.setString(2, proyecto.getDescripcion());
-        ps.setDate(3, proyecto.getFechaCreacion());
+        ps.setString(1, proyecto.getId());
+        ps.setString(2, proyecto.getTitulo());
+        ps.setString(3, proyecto.getDescripcion());
+        //ps.setDate(4, proyecto.getFechaCreacion());
         
-        
-        
-
         ps.execute();
         rta=true;
         

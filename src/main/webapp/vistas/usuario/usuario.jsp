@@ -35,7 +35,7 @@
     </header> -->
 
     <nav class="aside_nav">
-        <a class="aside_brand link--no-deco" href="../../index.html">
+        <a class="aside_brand link--no-deco" href="../../index.jsp">
             <img class="brand-logo" src="../../assets/img/Kaktus2.svg" alt="kaktus logo">
             <p class="brand-text-logo">kaktus</p>
         </a>
@@ -89,7 +89,7 @@
 
         <div class="btn-container pos-last">
 
-            <a class="logout-btn" type="submit"  href="<%=request.getContextPath()%>/LoginController?accion=salir"><span class="material-icons-outlined">logout</span>
+            <a class="logout-btn" type="submit"  href="<%=request.getContextPath()%>/LoginController?accion=salir"> <span class="material-icons-outlined">logout</span>
                 <span>Cerrar sesion</span>
             </a>
         </div>
@@ -103,7 +103,9 @@
         
         <div class="content-projects">
 
-            <div class="project add-project"> <span class="material-icons-outlined">add</span></div>
+            <!--<div  class="project add-project"> <span class="material-icons-outlined">add</span></div>-->
+            <a href="../proyecto/proyectoForm.jsp"> <div class="project add-project"> <span class="material-icons-outlined">add</span></div> </a>
+            
             <!-- <div class="project"></div>
             <div class="project"></div>
             <div class="project"></div>

@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class ProyectoDTO {
     
-    private int id;
+    private String id;
     private String titulo;
     private String descripcion;
     private String urlImagen;
@@ -23,7 +23,7 @@ public class ProyectoDTO {
     public ProyectoDTO() {
     }
 
-    public ProyectoDTO(int id, String titulo, String descripcion, String urlImagen, Date fechaCreacion) {
+    public ProyectoDTO(String id, String titulo, String descripcion, String urlImagen, Date fechaCreacion) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -31,11 +31,11 @@ public class ProyectoDTO {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -74,7 +74,7 @@ public class ProyectoDTO {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + this.id;
+        hash = 59 * hash + Objects.hashCode(this.id);
         hash = 59 * hash + Objects.hashCode(this.titulo);
         return hash;
     }
