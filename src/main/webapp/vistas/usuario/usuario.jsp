@@ -1,9 +1,16 @@
+<%@page import="entidades.ProyectoDTO"%>
 <%@page session="true" %>
+<jsp:useBean id="facade" class="facade.ProyectoFacade" scope="session"/>
 <%
-    HttpSession sesion =request.getSession();
+    HttpSession sesion = request.getSession();
+    int id;
     String username = "";
+    String image_url = "";
     
+    id = Integer.parseInt(sesion.getAttribute("id").toString());
     username = sesion.getAttribute("username").toString();
+    image_url = sesion.getAttribute("image_url").toString();
+    
   
 %>
 <!DOCTYPE html>
@@ -80,10 +87,11 @@
             </li>
         </ul>
 
-        <div class="user-info pos-last"> <img class="user-photo" src="../../assets/img/user-photo.jpg" alt="user photo"
+        <div class="user-info pos-last"> <img class="user-photo" src="<%=image_url%>" alt="user photo"
                 width="90px" height="auto">
             <p class="user-text-info">
                 <span class="span-name"><%= username%></span>
+                <span class="span-name"><%= id%></span>
             </p>
         </div>
 
@@ -102,24 +110,12 @@
         <h1 class="hero-text">Mis proyectos</h1>
         
         <div class="content-projects">
-
-            <!--<div  class="project add-project"> <span class="material-icons-outlined">add</span></div>-->
+            
             <a href="../proyecto/proyectoForm.jsp"> <div class="project add-project"> <span class="material-icons-outlined">add</span></div> </a>
             
-            <!-- <div class="project"></div>
-            <div class="project"></div>
-            <div class="project"></div>
-
-            <div class="project"></div>
-            <div class="project"></div>
-            <div class="project"></div>
-            <div class="project"></div>
-            <div class="project"></div>
-            <div class="project"></div>
-            <div class="project"></div>
-            <div class="project"></div>
-            <div class="project"></div> -->
-
+            <% for (ProyectoDTO p : facade.buscarProyectosUser(username)) {%>
+                <div class="project"><%= p.getTitulo() %></div>
+           <%}%>
         </div>
 
     </main>

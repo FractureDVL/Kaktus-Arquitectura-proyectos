@@ -40,6 +40,7 @@ public class RegistroController extends HttpServlet {
             usuarioDto.setEmail(email);
             usuarioDto.setUser(user);
             usuarioDto.setPassword(password);
+            usuarioDto.setImgUrl("../../assets/img/user-photo.png");
 
             boolean rta = false;
         

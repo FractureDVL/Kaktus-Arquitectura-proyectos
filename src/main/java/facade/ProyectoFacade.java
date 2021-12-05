@@ -25,6 +25,11 @@ public class ProyectoFacade {
         return proyectoNegocio.buscarProyectos();
     }
     
+    public List<ProyectoDTO> buscarProyectosUser(String username){
+        return proyectoNegocio.buscarProyectosUser(username);
+    }
+    
+    
     public int eliminarProyecto(ProyectoDTO proyecto){
         return proyectoNegocio.eliminarProyecto(proyecto);
     }

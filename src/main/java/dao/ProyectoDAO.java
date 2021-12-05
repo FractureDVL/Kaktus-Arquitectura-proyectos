@@ -21,7 +21,8 @@ import java.util.List;
  */
 public class ProyectoDAO implements Serializable {
 
-    public static final String GET_ALL = "SELECT * FROM projects WHERE id_user = ?";
+    public static final String GET_ALL = "SELECT * FROM projects WHERE id_project = ?";
+    public static final String GET_ONE = "SELECT * FROM projects WHERE nickname_user = ?";
     public static final String GET_IMAGE = "SELECT image_projects.img_url FROM projects INNER JOIN image_projects ON projects.id_project = image_projects.id_project;";
     public static final String DELETE_PROJECT = "DELETE FROM projects WHERE id_project = ?";
     public static final String UPDATE_PROJECT = "UPDATE projects SET name_project = ?, description = ? VALUES (?,?) WHERE id_project = ?";
@@ -34,18 +35,21 @@ public class ProyectoDAO implements Serializable {
         Connection con = conexion.getConnection("ProyectoDAO.buscarProyectos");
 
         PreparedStatement ps = con.prepareStatement(this.GET_ALL);
+        
         ResultSet rst = ps.executeQuery();
 
+        
         while (rst.next()) {
 
-            ProyectoDTO usuario = new ProyectoDTO();
+            ProyectoDTO proyecto = new ProyectoDTO();
 
-            usuario.setId(rst.getString("nickname_user"));
-            usuario.setTitulo(rst.getString(1));
-            usuario.setDescripcion(rst.getString(2));
-            usuario.setUrlImagen(rst.getString(3));
+            proyecto.setId_proyecto(rst.getInt("id_project"));
+            proyecto.setUsuario(rst.getString(1));
+            proyecto.setTitulo(rst.getString(2));
+            proyecto.setDescripcion(rst.getString(3));
+//            proyecto.setUrlImagen(rst.getString(4));
             
-            proyectos.add(usuario);
+            proyectos.add(proyecto);
         }
 
         rst.close();
@@ -70,7 +74,7 @@ public class ProyectoDAO implements Serializable {
         
         try{
             sen = con.prepareStatement(this.DELETE_PROJECT);
-            sen.setString(1, proyecto.getId());
+            sen.setInt(1, proyecto.getId_proyecto());
             registros = sen.executeUpdate();
         } catch (SQLException ex){
             ex.printStackTrace(System.out);
@@ -95,7 +99,7 @@ public class ProyectoDAO implements Serializable {
         
         ps = con.prepareStatement(this.UPDATE_PROJECT);
         
-        ps.setString(3, proyecto.getId());
+        ps.setInt(3, proyecto.getId_proyecto());
         ps.setString(1, proyecto.getTitulo());
         ps.setString(2, proyecto.getDescripcion());
         
@@ -118,7 +122,7 @@ public class ProyectoDAO implements Serializable {
         
         PreparedStatement ps = con.prepareStatement(this.CREATE_PROJECT);
         
-        ps.setString(1, proyecto.getId());
+        ps.setString(1, proyecto.getUsuario());
         ps.setString(2, proyecto.getTitulo());
         ps.setString(3, proyecto.getDescripcion());
         //ps.setDate(4, proyecto.getFechaCreacion());
@@ -133,6 +137,55 @@ public class ProyectoDAO implements Serializable {
         con = null;
         
         return rta;  
+    }
+    
+    
+    public  List<ProyectoDTO> buscarProyectosUser(String username) throws SQLException{
+        
+        List<ProyectoDTO> proyectos = new ArrayList<ProyectoDTO>();
+
+        ConnectionDB conexion = new ConnectionDB();
+        Connection con = conexion.getConnection("ProyectoDAO.buscarProyectosUser");
+
+        PreparedStatement ps = con.prepareStatement(this.GET_ONE);
+        ps.setString(1,username);
+        
+        String hola = ps.toString();
+        
+        ResultSet rst = ps.executeQuery();
+        
+        
+
+        while (rst.next()) {
+            
+            ProyectoDTO proyecto = new ProyectoDTO();
+
+            
+            proyecto.setId_proyecto(rst.getInt("id_project"));
+            proyecto.setUsuario(rst.getString("nickname_user"));
+            proyecto.setTitulo(rst.getString("name_project"));
+            proyecto.setDescripcion(rst.getString("description"));
+            proyecto.setFechaCreacion(rst.getDate("created_at"));
+            
+            if(username == proyecto.getUsuario()){
+            
+                proyectos.add(proyecto);
+            
+           }
+        }
+
+        rst.close();
+        rst = null;
+
+        ps.close();
+        ps = null;
+
+        con.close();
+        con = null;
+
+        return proyectos;
+        
+    
     }
 
 }

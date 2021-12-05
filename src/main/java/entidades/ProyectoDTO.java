@@ -14,29 +14,36 @@ import java.util.Objects;
  */
 public class ProyectoDTO {
     
-    private String id;
+    private int id_proyecto;
+    private String usuario;
     private String titulo;
     private String descripcion;
-    private String urlImagen;
     private Date fechaCreacion;
 
     public ProyectoDTO() {
     }
 
-    public ProyectoDTO(String id, String titulo, String descripcion, String urlImagen, Date fechaCreacion) {
-        this.id = id;
+    public ProyectoDTO(String usuario, String titulo, String descripcion, Date fechaCreacion) {
+        this.usuario = usuario;
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.urlImagen = urlImagen;
         this.fechaCreacion = fechaCreacion;
     }
 
-    public String getId() {
-        return id;
+    public int getId_proyecto() {
+        return id_proyecto;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId_proyecto(int id_proyecto) {
+        this.id_proyecto = id_proyecto;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getTitulo() {
@@ -55,14 +62,7 @@ public class ProyectoDTO {
         this.descripcion = descripcion;
     }
 
-    public String getUrlImagen() {
-        return urlImagen;
-    }
-
-    public void setUrlImagen(String urlImagen) {
-        this.urlImagen = urlImagen;
-    }
-
+   
     public Date getFechaCreacion() {
         return fechaCreacion;
     }
@@ -74,7 +74,7 @@ public class ProyectoDTO {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.id);
+        hash = 59 * hash + Objects.hashCode(this.usuario);
         hash = 59 * hash + Objects.hashCode(this.titulo);
         return hash;
     }
@@ -91,7 +91,7 @@ public class ProyectoDTO {
             return false;
         }
         final ProyectoDTO other = (ProyectoDTO) obj;
-        if (this.id != other.id) {
+        if (this.usuario != other.usuario) {
             return false;
         }
         if (!Objects.equals(this.titulo, other.titulo)) {

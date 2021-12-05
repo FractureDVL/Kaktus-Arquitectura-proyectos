@@ -163,7 +163,7 @@ public class UsuarioDAO implements Serializable {
         return rta;
     }
 
-    public int iniciarSesion(UsuarioDTO usuario) throws SQLException {
+    public UsuarioDTO obtenerUsuario(String user, String password) throws SQLException {
 
         ConnectionDB conexion = new ConnectionDB();
         Connection con = conexion.getConnection("UsuarioDAO.iniciarSesion");
@@ -172,15 +172,21 @@ public class UsuarioDAO implements Serializable {
 
         PreparedStatement ps = con.prepareStatement(this.LOGIN);
         int registros = 0;
-
-        ps.setString(1, usuario.getUser());
-        ps.setString(2, usuario.getPassword());
+        UsuarioDTO usuario = new UsuarioDTO();
+        
+        ps.setString(1, user);
+        ps.setString(2, password);
         rs = ps.executeQuery();
-
+        
         while (rs.next()) {
             registros = registros + 1;
+            usuario.setId(rs.getInt("Id_user"));
+            usuario.setName(rs.getString("name"));
+            usuario.setEmail(rs.getString("email"));
             usuario.setUser(rs.getString("nickname"));
             usuario.setPassword(rs.getString("password"));
+            usuario.setImgUrl(rs.getString("image_url"));
+            usuario.setRole(rs.getString("role"));
         }
 
         ps.close();
@@ -189,12 +195,8 @@ public class UsuarioDAO implements Serializable {
         con.close();
         con = null;
 
-        if (registros == 1) {
-            return 1;
-        } else {
-            return 0;
-        }
 
+            return usuario;
     }
 
     public int validarSesion(String user, String password) {

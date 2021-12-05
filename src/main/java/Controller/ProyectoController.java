@@ -28,7 +28,7 @@ public class ProyectoController extends HttpServlet{
         
         if (accion.equals("crear")) {
             
-            HttpSession sesion =request.getSession();
+            HttpSession sesion = request.getSession();
             String username = sesion.getAttribute("username").toString();
             String titulo = request.getParameter("titulo");
             String descripcion = request.getParameter("descripcion");
@@ -36,7 +36,7 @@ public class ProyectoController extends HttpServlet{
             ProyectoFacade proyectoFacade = new ProyectoFacade();
             
             ProyectoDTO proyectoDTO = new ProyectoDTO();
-            proyectoDTO.setId(username);
+            proyectoDTO.setUsuario(username);
             proyectoDTO.setTitulo(titulo);
             proyectoDTO.setDescripcion(descripcion);
 

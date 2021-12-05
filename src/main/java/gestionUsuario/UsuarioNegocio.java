@@ -82,18 +82,18 @@ public class UsuarioNegocio implements Serializable {
         return rta;
     }
 
-    public int iniciarSesion(UsuarioDTO usuario) {
+    public UsuarioDTO iniciarSesion(String user, String password) {
 
-        int rta = 0;
+        UsuarioDTO usuario = new UsuarioDTO();
 
         try {
 
-            rta = usuariodao.iniciarSesion(usuario);
+            usuario = usuariodao.obtenerUsuario(user, password);
 
         } catch (Exception e) {
             e.printStackTrace();
 
         }
-        return rta;
+        return usuario;
     }
 }

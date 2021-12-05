@@ -35,6 +35,18 @@ public class ProyectoNegocio {
 
         return proyectos;
     }
+     public List<ProyectoDTO> buscarProyectosUser(String username) {
+        List<ProyectoDTO> proyectos = new ArrayList<ProyectoDTO>();
+
+        try {
+            proyectos = proyectodao.buscarProyectosUser(username);
+        } catch (Exception e) {
+            e.printStackTrace();
+            proyectos = null;
+        }
+
+        return proyectos;
+    }
 
     public boolean crearProyecto(ProyectoDTO proyecto) {
         boolean rta = false;

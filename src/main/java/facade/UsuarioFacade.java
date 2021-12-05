@@ -41,7 +41,7 @@ public class UsuarioFacade {
         return usuarioNegocio.registrarUsuario(usuario);
     }
     
-    public int iniciarSesion(UsuarioDTO usuario){
-        return usuarioNegocio.iniciarSesion(usuario);
+    public UsuarioDTO iniciarSesion(String username, String password){
+        return usuarioNegocio.iniciarSesion(username, password);
     }
 }
