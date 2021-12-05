@@ -48,8 +48,54 @@ public class ProyectoController extends HttpServlet{
                 
             } catch (Exception e) {
                 e.printStackTrace();
+            }   
+        }     
+        
+        if (accion.equals("editar")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String titulo = request.getParameter("titulo");
+            String descripcion = request.getParameter("descripcion");
+
+            ProyectoFacade proyectoFacade = new ProyectoFacade();
+            
+            ProyectoDTO proyectoDTO = new ProyectoDTO();
+            proyectoDTO.setId_proyecto(id);
+            proyectoDTO.setTitulo(titulo);
+            proyectoDTO.setDescripcion(descripcion);
+
+            int rta = 0;
+        
+            try {
+                rta = proyectoFacade.actualizarProyecto(proyectoDTO);
+                response.sendRedirect("/Kaktus-Arquitectura-proyectos/vistas/usuario/usuario.jsp");
+                
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             
+        } 
+    }
+    
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String accion = request.getParameter("accion");
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        if(accion.equals("eliminar")){
+            ProyectoFacade proyectoFacade = new ProyectoFacade();
+            
+            ProyectoDTO proyectoDTO = new ProyectoDTO();
+            proyectoDTO.setId_proyecto(id);
+
+            int rta = 0;
+        
+            try {
+                rta = proyectoFacade.eliminarProyecto(proyectoDTO);
+                response.sendRedirect("/Kaktus-Arquitectura-proyectos/vistas/usuario/usuario.jsp");
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }            
         }
     }
     

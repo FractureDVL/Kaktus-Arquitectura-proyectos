@@ -25,7 +25,7 @@ public class ProyectoDAO implements Serializable {
     public static final String GET_ONE = "SELECT * FROM projects WHERE nickname_user = ?";
     public static final String GET_IMAGE = "SELECT image_projects.img_url FROM projects INNER JOIN image_projects ON projects.id_project = image_projects.id_project;";
     public static final String DELETE_PROJECT = "DELETE FROM projects WHERE id_project = ?";
-    public static final String UPDATE_PROJECT = "UPDATE projects SET name_project = ?, description = ? VALUES (?,?) WHERE id_project = ?";
+    public static final String UPDATE_PROJECT = "UPDATE projects SET name_project = ?, description = ? WHERE id_project = ?";
     public static final String CREATE_PROJECT = "INSERT INTO projects (nickname_user, name_project, description) VALUES (?,?,?)";
 
     public List<ProyectoDTO> buscarProyectos() throws Exception {
@@ -166,12 +166,7 @@ public class ProyectoDAO implements Serializable {
             proyecto.setTitulo(rst.getString("name_project"));
             proyecto.setDescripcion(rst.getString("description"));
             proyecto.setFechaCreacion(rst.getDate("created_at"));
-            
-            if(username == proyecto.getUsuario()){
-            
-                proyectos.add(proyecto);
-            
-           }
+            proyectos.add(proyecto);
         }
 
         rst.close();
