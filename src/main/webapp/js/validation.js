@@ -5,15 +5,17 @@ function validate() {
 
     if (password != confirmPassword) {
 
-        var passId = document.getElementById("pass-id");
-        var confirmId = document.getElementById("confirm-id");
+        var passId = document.getElementById("password");
+        var confirmId = document.getElementById("confirm-password");
 
         passId.classList.add("input--no-validate");
         confirmId.classList.add("input--no-validate");
 
         return false;
     }
-    else { return true; }
+    else { 
+        return true; 
+    }
 
 
 
