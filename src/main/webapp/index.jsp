@@ -49,7 +49,7 @@
                     
                     if(username==null){
                 %>
-                <a class="nav__option-link link--no-deco link-clr btn--style-nb cursor-p" href="vistas/login/login.jsp">Iniciar sesión</a>
+                <a class="nav__option-link link--no-deco link-clr btn--style-nb cursor-p" href="vistas/login/login.jsp?rta=1">Iniciar sesión</a>
                 <a class="nav__option-link link--no-deco link-clr btn--style-b cursor-p" href="vistas/registro/registro.jsp">Registrarse</a>
                 <%
                     }

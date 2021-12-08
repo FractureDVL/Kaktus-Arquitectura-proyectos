@@ -80,7 +80,7 @@
                     </a>
                 </li>
                 <li class="option-menu">
-                    <a class="option-link" href="">
+                    <a class="option-link" href="editarUsuario.jsp">
                         <span class="material-icons-outlined sz-icon clr-icon">settings</span>
                         <span class=" sz-text clr-text space-text">Configuracion</span>
                     </a>
@@ -101,7 +101,7 @@
                     <span>Cerrar sesion</span>
                 </a>
             </div>
-
+            
         </nav>
 
     </div>

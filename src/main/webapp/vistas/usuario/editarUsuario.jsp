@@ -1,4 +1,14 @@
 <%@page session="true" %>
+<%
+    HttpSession sesion = request.getSession();
+    
+    int id = Integer.parseInt(sesion.getAttribute("id").toString());
+    String username = sesion.getAttribute("username").toString();
+    String name = sesion.getAttribute("name").toString();
+    String email = sesion.getAttribute("email").toString();
+    String password = sesion.getAttribute("password").toString();
+%>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -20,56 +30,55 @@
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="../../js/script.js"></script>
     
-    <title>Kaktus | Registro</title>
+    <title>Kaktus | Actualizar datos</title>
+    
 </head>
 
 <body class="register-page">
 
     <div class="register background-image">
-
         <div class="myform__container">
-            <form id="form" class="myform" action="<%=request.getContextPath()%>/RegistroController?accion=registrar" method="POST">
-                <h1 class="myform__title">Crear cuenta</h1>
-                <p class="myform__text">¿Ya tienes cuenta? <a class="text__link" href="../login/login.jsp">Inicia sesi&oacute;n.</a></p>
+            <form id="form" class="myform" action="<%=request.getContextPath()%>/UsuarioController?accion=editar&id=<%= id %>" method="POST">
+                <h1 class="myform__title">Actualizar datos</h1>     
                 <div class="myform__field">
                     <label class="form__label" for="name">Nombre</label>
                     <input class="form__input form__input-contain input--no-outline" type="text" name="name" id="name"
-                        required>
+                           value="<%= name %>" required>
                 </div>
 
                 <div class="myform__field">
                     <label class="form__label" for="email">Correo</label>
                     <input class="form__input form__input-contain input--no-outline" type="email" name="email"
-                        id="email" required>
+                           id="email"  value="<%= email %>" required>
                 </div>
 
                 <div class="myform__field">
                     <label class="form__label" for="user">Usuario</label>
                     <input class="form__input form__input-contain input--no-outline" type="text" name="user" id="user"
-                        required>
+                           value="<%= username%>" readonly style="background-color: #EAF0FF">
                 </div>
 
-
                 <div class="myform__field">
-                    <label class="form__label" for="password">Contrase&ntilde;a</label>
+                    <label class="form__label" for="password">Nueva Contrase&ntilde;a</label>
                     <input class="form__input form__input-contain input--no-outline" type="password" name="password" id="password"
-                        required>
+                           value="<%= password%>" required>
                 </div>
+                
                 <div class="myform__field">
-                    <label class="form__label" for="confirm-password">Confirmar contrase&ntilde;a</label>
+                    <label class="form__label" for="confirm-password">Confirmar nueva Contrase&ntilde;a</label>
                     <input class="form__input form__input-contain input--no-outline" type="password" name="confirm-password" id="confirm-password"
-                        required>
+                           value="<%= password%>" required>
                 </div>
                 
                 <div id="alerta-contrasenas"></div>
                 
                 <div class="myform__btns">
-                    <button class="btn--submit btn--noBorder btn--noOutline" type="submit">Registrarse</button>
+                    <button class="btn--submit btn--noBorder btn--noOutline" type="submit">Actualizar datos</button>
                 </div>
+ 
             </form>
         </div>
     </div>
-
 </body>
 
 </html>

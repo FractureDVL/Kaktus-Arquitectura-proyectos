@@ -17,7 +17,7 @@ public class UsuarioDAO implements Serializable {
     private static final String GET_ALL = "SELECT * FROM users";
     private static final String GET_ONE = "SELECT * FROM users WHERE id_user = ?";
     private static final String DROP_USER = "DELETE FROM users WHERE id_user = ?";
-    private static final String UPDATE_USER = "UPDATE users SET name = ?, nickname = ?, password = ? VALUES (?,?,?) WHERE id_user = ?";
+    private static final String UPDATE_USER = "UPDATE users SET name = ?, email = ?, password = ? WHERE id_user = ?";
     private static final String CREATE_USER = "INSERT INTO `users`(`name`, `email`, `nickname`, `password`) VALUES (?,?,?,?)";
     private static final String LOGIN = "SELECT * FROM users WHERE nickname = ? and password=?";
 
@@ -115,7 +115,7 @@ public class UsuarioDAO implements Serializable {
     public int actualizarUsuario(UsuarioDTO usuario) throws Exception {
 
         ConnectionDB conexion = new ConnectionDB();
-        Connection con = conexion.getConnection("JugadorDao.actualizarUsuario");
+        Connection con = conexion.getConnection("UsuarioDAO.actualizarUsuario");
         PreparedStatement ps = null;
 
         int registros = 0;
@@ -166,7 +166,7 @@ public class UsuarioDAO implements Serializable {
     public UsuarioDTO obtenerUsuario(String user, String password) throws SQLException {
 
         ConnectionDB conexion = new ConnectionDB();
-        Connection con = conexion.getConnection("UsuarioDAO.iniciarSesion");
+        Connection con = conexion.getConnection("UsuarioDAO.obtenerUsuario");
 
         ResultSet rs;
 
