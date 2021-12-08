@@ -36,7 +36,7 @@
             <div class="myform__container">
                 <form id="login" class="myform" action="<%=request.getContextPath()%>/LoginController?accion=ingresar" method="POST">
                     <h1 class="myform__title">Iniciar sesi&oacute;n</h1>
-                    <p class="myform__text"><span>A&uacute;n no tienes cuenta?</span><a class="text__link" href="../registro/registro.jsp"> Crea una cuenta.</a></p>
+                    <p class="myform__text"><span>A&uacute;n no tienes cuenta?</span><a class="text__link" href="../registro/registro.jsp?rtaUser=0&&rtaEmail=0"> Crea una cuenta.</a></p>
 
                     <div class="myform__field">
                         <label class="form__label" for="user">Usuario</label>
