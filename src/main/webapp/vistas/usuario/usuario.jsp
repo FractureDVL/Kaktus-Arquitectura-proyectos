@@ -6,133 +6,122 @@
     int id;
     String username = "";
     String image_url = "";
-    
+
     id = Integer.parseInt(sesion.getAttribute("id").toString());
     username = sesion.getAttribute("username").toString();
     image_url = sesion.getAttribute("image_url").toString();
-    
-  
 %>
+
 <!DOCTYPE html>
 <html lang="es">
 
     <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../css/style-main.css">
+        <!-- Boxicons CDN Link -->
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Kaktus Register Architecture">
-        <!--Estandar-->
-        <link rel="stylesheet" type="text/css" href="css/normalize.css">
-        <!--Fuentes google-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-        <!--Mi css-->
-        <link rel="stylesheet" href="../../css/style-user.css">
-        <link rel="shortcut icon" href="assets/img/Kaktus2.svg" type="image/x-icon">
-        <title>Kaktus | <%= username%></title>
-
+        <title>KAKTUS | <%=username%></title>
     </head>
 
-    <body class="user-page">
+    <body>
+        <div class="sidebar">
 
-        <!-- <header class="header">
-            <input type="search" placeholder="Busca un proyecto :)">        
-    
-        </header> -->
-
-        <nav class="aside_nav">
-            <a class="aside_brand link--no-deco" href="../../index.jsp">
-                <img class="brand-logo" src="../../assets/img/Kaktus2.svg" alt="kaktus logo">
-                <p class="brand-text-logo">kaktus</p>
-            </a>
-
-            <ul class="menu dashboard">
-                <li class="label-menu">Dashboard</li>
-                <li class="option-menu">
-                    <a class="option-link" href="">
-                        <span class="material-icons-outlined sz-icon clr-icon">dashboard</span>
-                        <span class="sz-text clr-text space-text">Mis Proyectos</span>
+            <div class="logo-details">
+                <img class="img_logo" src="../../assets/img/Kaktus2.svg" alt="logo kaktus">
+                <span class="logo_name">kaktus</span>
+            </div>
+            <ul id="nav-links" class="nav-links">
+                <li>
+                    <a href="#" class="option active">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="links_name">Mis proyectos</span>
                     </a>
                 </li>
 
-                <li class="option-menu">
-                    <a class="option-link" href="">
-                        <span class="material-icons-outlined sz-icon clr-icon">explore</span>
-                        <span class="sz-text clr-text space-text">Explorar</span>
+                <li>
+                    <a href="../../index.jsp" class="option">
+                        <i class='bx bx-compass'></i>
+                        <span class="links_name">Explorar</span>
                     </a>
                 </li>
 
-                <li class="option-menu">
-                    <a class="option-link" href="">
-                        <span class="material-icons-outlined sz-icon clr-icon">file_upload</span>
-                        <span class="sz-text clr-text space-text">Subir proyecto</span>
+                <li>
+                    <a href="editarUsuario.jsp" class="option">
+                        <i class='bx bx-cog'></i>
+                        <span class="links_name">Configuración</span>
+                    </a>
+                </li>
+
+                <li class="log_out">
+                    <a href="<%=request.getContextPath()%>/LoginController?accion=salir" class="option">
+                        <i class='bx bx-log-out'></i>
+                        <span class="links_name">Cerrar sesión</span>
                     </a>
                 </li>
             </ul>
-
-            <ul class="menu account">
-                <li class="label-menu">Account</li>
-                <li class="option-menu">
-                    <a class="option-link" href="">
-                        <span class="material-icons-outlined sz-icon clr-icon">notifications</span>
-                        <span class="sz-text clr-text space-text">Notificaciones</span>
-                    </a>
-                </li>
-                <li class="option-menu">
-                    <a class="option-link" href="editarUsuario.jsp">
-                        <span class="material-icons-outlined sz-icon clr-icon">settings</span>
-                        <span class=" sz-text clr-text space-text">Configuracion</span>
-                    </a>
-                </li>
-            </ul>
-
-            <div class="user-info pos-last"> <img class="user-photo" src="<%=image_url%>" alt="user photo"
-                                                  width="90px" height="auto">
-                <p class="user-text-info">
-                    <span class="span-name"><%= username%></span>
-                    <span class="span-name"><%= id%></span>
-                </p>
-            </div>
-
-            <div class="btn-container pos-last">
-
-                <a class="logout-btn" type="submit"  href="<%=request.getContextPath()%>/LoginController?accion=salir"> <span class="material-icons-outlined">logout</span>
-                    <span>Cerrar sesion</span>
-                </a>
-            </div>
-            
-        </nav>
-
-    </div>
-    <main class="section-projects">
-
-        <h1 class="hero-text">Mis proyectos</h1>
-
-        <div class="content-projects">
-
-
-            <a href="../proyecto/proyectoForm.jsp"> <div class="project add-project"> <span class="material-icons-outlined">add</span></div> </a>
-
-            <% 
-            for (ProyectoDTO p : facade.buscarProyectosUser(username)) {
-                int id_proyecto = p.getId_proyecto();
-                String titulo = p.getTitulo();
-                String descripcion = p.getDescripcion();              
-            %>
-            <div class="project"> <%= p.getTitulo() %> 
-                <a class="logout-btn" type="submit"  href="<%=request.getContextPath()%>/ProyectoController?accion=eliminar&id=<%= p.getId_proyecto() %>"> <span class="material-icons-outlined">delete</span></a>
-
-                <a class="logout-btn" href="../proyecto/editarProyecto.jsp?id=<%= id_proyecto %>&titulo=<%= titulo %>&descripcion=<%= descripcion %>"> <span class="material-icons-outlined">edit</span> </a>
-            </div>
-            <%
-                }
-            %>
-
         </div>
 
-    </main>
+        <section class="home-section">
+            <nav>
+                <div class="sidebar-button">
+                    <i class='bx bx-menu sidebarBtn'></i>
+                    <span class="dashboard">Mis proyectos</span>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <i class='bx bx-search'></i>
+                </div>
+                <div class="profile-details">
+                    <img src="<%=image_url%>" alt="user-photo">
+                    <span class="admin_name"><%=username%></span>
+                </div>
+            </nav>
 
-</body>
+            <div class="home-content">
+                <div class="overview-boxes">
+
+                    <a class="box" href="../proyecto/proyectoForm.jsp">
+                        <i class='bx bxs-add-to-queue'></i>
+                    </a>
+
+                    <%
+                        for (ProyectoDTO p : facade.buscarProyectosUser(username)) {
+                            int id_proyecto = p.getId_proyecto();
+                            String titulo = p.getTitulo();
+                            String descripcion = p.getDescripcion();
+                            String fechaCreacion = p.getFechaCreacion().toString();
+
+                    %>
+                    <div style="background-image: url(img/stringio.jpg);" class="box-project background_proyect">
+                        <a href=""><i class='bx bxs-edit'></i></a>
+                        <div  class="right-side ">
+                            <div class="box-topic"><%=titulo%></div>
+                            <div class="indicator">
+                                <span class="text"><%=fechaCreacion%></span>
+                            </div>
+                        </div>
+                    </div>
+                    <%                }
+                    %>
+                </div>
+            </div>
+
+
+        </section>
+        <script>
+            let sidebar = document.querySelector(".sidebar");
+            let sidebarBtn = document.querySelector(".sidebarBtn");
+            sidebarBtn.onclick = function () {
+                sidebar.classList.toggle("active");
+                if (sidebar.classList.contains("active")) {
+                    sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+                } else
+                    sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+
+            }
+        </script>
+
+    </body>
 
 </html>

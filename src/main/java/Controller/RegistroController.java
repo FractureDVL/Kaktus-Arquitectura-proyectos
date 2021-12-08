@@ -7,6 +7,7 @@ package Controller;
 
 import entidades.UsuarioDTO;
 import facade.UsuarioFacade;
+import java.io.File;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +32,7 @@ public class RegistroController extends HttpServlet {
             String email = request.getParameter("email");
             String user = request.getParameter("user");
             String password = request.getParameter("password");
+            String confirmPassword = request.getParameter("confirm-password");
             
 
             UsuarioFacade usuarioFacade = new UsuarioFacade();
@@ -45,8 +47,19 @@ public class RegistroController extends HttpServlet {
             boolean rta = false;
         
             try {
+                if(confirmPassword.equals(password)){
                 rta = usuarioFacade.registrarUsuario(usuarioDto);
-                response.sendRedirect("/Kaktus-Arquitectura-proyectos/vistas/login/login.jsp");
+                
+                File f = new File("C:\\Kaktus-Arquitectura-proyectos\\src\\main\\webapp\\public\\"+user);
+                File f1 = new File("C:\\Kaktus-Arquitectura-proyectos\\src\\main\\webapp\\public\\"+user+"\\Proyectos");
+                f.mkdir();
+                f1.mkdir();
+                
+                response.sendRedirect("/Kaktus-Arquitectura-proyectos/vistas/login/login.jsp?rta=1");
+                
+                }else{
+                response.sendRedirect("/Kaktus-Arquitectura-proyectos/vistas/registro/registro.jsp");
+                }
                 
             } catch (Exception e) {
                 e.printStackTrace();
