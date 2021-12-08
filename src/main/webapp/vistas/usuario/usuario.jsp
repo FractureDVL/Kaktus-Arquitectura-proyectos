@@ -93,8 +93,8 @@
                             String fechaCreacion = p.getFechaCreacion().toString();
 
                     %>
-                    <div style="background-image: url(img/stringio.jpg);" class="box-project background_proyect">
-                        <a href=""><i class='bx bxs-edit'></i></a>
+                    <div style="background-image: url(../../assets/img/stringio.jpg);" class="box-project background_proyect">
+                        <a href="../proyecto/editarProyecto.jsp?id=<%= id_proyecto %>&titulo=<%= titulo %>&descripcion=<%= descripcion %>"><i class='bx bxs-edit'></i></a>
                         <div  class="right-side ">
                             <div class="box-topic"><%=titulo%></div>
                             <div class="indicator">
