@@ -59,7 +59,7 @@ public class LoginController extends HttpServlet {
                     //out.println("</script>");
                 } 
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    response.sendRedirect("/Kaktus-Arquitectura-proyectos/vistas/login/login.jsp");
                 }
 
         }

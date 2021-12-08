@@ -6,7 +6,6 @@
     int id;
     String username = "";
     String image_url = "";
-
     id = Integer.parseInt(sesion.getAttribute("id").toString());
     username = sesion.getAttribute("username").toString();
     image_url = sesion.getAttribute("image_url").toString();
@@ -18,9 +17,12 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../../css/style-main.css">
+        <!--Estandar-->
+        <link rel="shortcut icon" href="../../assets/img/Kaktus2.svg" type="image/x-icon">
         <!-- Boxicons CDN Link -->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
         <title>KAKTUS | <%=username%></title>
     </head>
 
@@ -91,18 +93,22 @@
                             String titulo = p.getTitulo();
                             String descripcion = p.getDescripcion();
                             String fechaCreacion = p.getFechaCreacion().toString();
-
                     %>
                     <div style="background-image: url(../../assets/img/stringio.jpg);" class="box-project background_proyect">
                         <a href="../proyecto/editarProyecto.jsp?id=<%= id_proyecto %>&titulo=<%= titulo %>&descripcion=<%= descripcion %>"><i class='bx bxs-edit'></i></a>
-                        <div  class="right-side ">
+                        <a class="delete" href="<%=request.getContextPath()%>/ProyectoController?accion=eliminar&id=<%= p.getId_proyecto()%>">
+                            <i class='bx bxs-trash'></i>
+                        </a>
+                        <div class="right-side "> 
+                            
                             <div class="box-topic"><%=titulo%></div>
                             <div class="indicator">
                                 <span class="text"><%=fechaCreacion%></span>
                             </div>
                         </div>
                     </div>
-                    <%                }
+                    <%
+                        }
                     %>
                 </div>
             </div>
@@ -118,10 +124,12 @@
                     sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
                 } else
                     sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-
             }
         </script>
 
+         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="../../js/sweetAlert.js" type="text/javascript"></script>
+        
     </body>
 
 </html>

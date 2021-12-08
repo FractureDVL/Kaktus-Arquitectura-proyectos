@@ -430,6 +430,24 @@ body {
     margin-top: 5px;
 }
 
+.login-page #alerta-login{
+  padding: 10px; 
+  border-radius: 5px;
+  text-align: center;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+
+.register-page #alerta-login{
+  padding: 10px; 
+  border-radius: 5px;
+  text-align: center;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+
 /* Responsive login page*/
 
 /*Tablet responsive login*/

@@ -1,4 +1,6 @@
 <%@page session="true" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%
     String n = request.getParameter("name");
     String e = request.getParameter("email");
@@ -18,13 +20,14 @@
 %>
 <!DOCTYPE html>
 <html lang="es">
-
     <head>
-        <meta charset="UTF-8">
+        <meta content="text/html" charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Kaktus Register Architecture">
         <!--Estandar-->
+        <link rel="shortcut icon" href="<%=request.getContextPath()%>../../assets/img/Kaktus2.svg" type="image/x-icon">
+        <link rel="shortcut icon" href="../../assets/img/Kaktus2.svg" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="../../css/normalize.css">
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/normalize.css">
         <!--Fuentes google-->
@@ -50,7 +53,7 @@
             <div class="myform__container">
                 <form id="form" class="myform" action="<%=request.getContextPath()%>/RegistroController?accion=registrar" method="POST">
                     <h1 class="myform__title">Crear cuenta</h1>
-                    <p class="myform__text">¿Ya tienes cuenta? <a class="text__link" href="../login/login.jsp?rta=1">Inicia sesi&oacute;n.</a></p>
+                    <p class="myform__text">Â¿Ya tienes cuenta? <a class="text__link" href="../login/login.jsp?rta=1">Inicia sesi&oacute;n.</a></p>
                     <div class="myform__field">
                         <label class="form__label" for="name">Nombre</label>
                         <input class="form__input form__input-contain input--no-outline" type="text" name="name" id="name"
@@ -106,5 +109,6 @@
         </div>
 
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </html>

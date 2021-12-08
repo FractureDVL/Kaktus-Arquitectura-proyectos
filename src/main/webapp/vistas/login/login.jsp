@@ -12,6 +12,7 @@
         <meta name="description" content="Login Kaktus Architecture">
         <meta name="keywords" content="">
         <!--Estandar-->
+        <link rel="shortcut icon" href="../../assets/img/Kaktus2.svg" type="image/x-icon">
         <link rel="stylesheet" href="../../css/normalize.css">
         <!--Iconos google-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rels="stylesheet">

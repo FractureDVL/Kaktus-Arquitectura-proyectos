@@ -90,7 +90,9 @@ public class ProyectoController extends HttpServlet{
             int rta = 0;
         
             try {
+                
                 rta = proyectoFacade.eliminarProyecto(proyectoDTO);
+                
                 response.sendRedirect("/Kaktus-Arquitectura-proyectos/vistas/usuario/usuario.jsp");
                 
             } catch (Exception e) {

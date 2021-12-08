@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Navbar | Kaktus</title>
         <!--Estándar-->
+        <link rel="shortcut icon" href="../../assets/img/Kaktus2.svg" type="image/x-icon">
         <link rel="stylesheet" href="css/normalize.css">
         <!--Iconos google-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rels="stylesheet">

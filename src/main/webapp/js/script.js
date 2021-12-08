@@ -28,21 +28,7 @@ $(document).ready(function () {
     });
 
 });
-////
-////<%
-//                        String rta = "1";
-//                        if(rta=="0"){//
-////                    %>
-////                    <div id="alerta-login"></div>
-////                    <script>
-//                        $(document).ready(function () {//
-////                            $('#login').submit(function (event) {
-////                                $('#alerta-login').text("Datos ingresados erroneos").css("color", "red");
-////                                event.preventDefault();
-////                            });
-////                        });
-//                    </script>//
-////                    <%
-//                        }
-//                    %>
-//                    
+
+setTimeout(function() {
+    $('#mydiv').delay(3000).fadeOut(300)
+});
