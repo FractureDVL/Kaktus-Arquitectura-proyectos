@@ -1,4 +1,4 @@
-
+<%@page session="true" %>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -47,18 +47,19 @@
 
 
                 <div class="myform__field">
-                    <label id="password" class="form__label" for="password">Contrase&ntilde;a</label>
+                    <label class="form__label" for="password">Contrase&ntilde;a</label>
                     <input class="form__input form__input-contain input--no-outline" type="password" name="password" id="password"
                         required>
                 </div>
                 <div class="myform__field">
-                    <label id="confirm-password" class="form__label" for="confirm-password">Confirmar contrase&ntilde;a</label>
+                    <label class="form__label" for="confirm-password">Confirmar contrase&ntilde;a</label>
                     <input class="form__input form__input-contain input--no-outline" type="password" name="confirm-password" id="confirm-password"
                         required>
                 </div>
                 <div class="myform__btns">
                     <button class="btn--submit btn--noBorder btn--noOutline" type="submit"
-                        onclick="">Registrarse</button>
+                        onclick="return validate()">Registrarse</button>
+                    <script src="../../js/validation.js"></script>
                     <button class="btn--google btn--noBorder btn--noOutline" type="button"><img class="img-google"
                             src="../../assets/img/google.svg" alt="SignUp-google" width="50px"></button>
                 </div>

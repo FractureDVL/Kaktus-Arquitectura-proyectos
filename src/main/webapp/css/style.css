@@ -258,6 +258,9 @@ body {
     .register-page .myform__label {
         font-size: 14px;
     }
+    .register-page .btn--submit {
+        font-size: 27px;
+    }
     .register-page .btn--google {
         padding: 4px;
     }
