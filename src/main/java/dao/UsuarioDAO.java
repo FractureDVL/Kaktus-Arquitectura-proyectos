@@ -1,6 +1,7 @@
 package dao;
 
 import Controller.ConnectionDB;
+import entidades.Imagen;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -223,4 +224,46 @@ public class UsuarioDAO implements Serializable {
 
         return 0;
     }
+    
+    public void agregarFoto(Imagen i){
+        int r = 0;
+        String sql = "INSERT INTO image_user ( image, usuario) VALUES (?,?)";
+        
+        try {
+            ConnectionDB conexion = new ConnectionDB();
+            Connection con = conexion.getConnection("UsuarioDAO.agregarFoto");
+            PreparedStatement ps = con.prepareStatement(sql);     
+            
+            ps.setBlob(1, i.getImagen());
+            ps.setString(2, i.getUsuario());
+            ps.executeUpdate();
+            
+        } catch (Exception e) {
+        }    
+    }
+    
+    public Imagen obtenerFotoUsuario(String usuario) throws SQLException{
+        Imagen i = new Imagen();
+        String sql = "SELECT FROM image_user WHERE usuario=?";
+        
+        try{
+            ConnectionDB conexion = new ConnectionDB();
+            Connection con = conexion.getConnection("UsuarioDAO.obtenerFotoUsuario");
+            PreparedStatement ps = con.prepareStatement(sql);     
+            ResultSet rs = null;
+            
+            ps.setString(1, usuario);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                i.setId(rs.getInt(1));
+                i.setImg(rs.getBytes(2));
+                i.setUsuario(rs.getString(3));
+            }     
+        }
+        catch(SQLException ex){
+            
+        }
+        return i;
+    }
+    
 }
