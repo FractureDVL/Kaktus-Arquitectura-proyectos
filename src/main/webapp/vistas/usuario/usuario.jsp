@@ -9,6 +9,7 @@
     id = Integer.parseInt(sesion.getAttribute("id").toString());
     username = sesion.getAttribute("username").toString();
     image_url = sesion.getAttribute("image_url").toString();
+    String a = "/Kaktus-Arquitectura-proyectos/UsuarioController?accion=verFoto&user="+username;
 %>
 
 <!DOCTYPE html>
@@ -54,6 +55,13 @@
                         <span class="links_name">Configuración</span>
                     </a>
                 </li>
+                
+                <li>
+                    <a href="cambiarFoto.jsp" class="option">
+                        <i class='bx bx-photo-album'></i>
+                        <span class="links_name">Mi foto</span>
+                    </a>
+                </li>
 
                 <li class="log_out">
                     <a href="<%=request.getContextPath()%>/LoginController?accion=salir" class="option">
@@ -75,7 +83,7 @@
                     <i class='bx bx-search'></i>
                 </div>
                 <div class="profile-details">
-                    <img src="<%=image_url%>" alt="user-photo">
+                    <img src="<%=a%>" alt="user-photo">
                     <span class="admin_name"><%=username%></span>
                 </div>
             </nav>

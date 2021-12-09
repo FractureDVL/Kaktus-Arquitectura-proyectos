@@ -43,6 +43,7 @@
                     String url_photo;
                     username = (String) sesion.getAttribute("username");
                     url_photo = (String) sesion.getAttribute("image_url");
+                    String a = "/Kaktus-Arquitectura-proyectos/UsuarioController?accion=verFoto&user="+username;
                     
                     if(username == null){
                 %>
@@ -59,10 +60,10 @@
             else
         {%>
         
-        <div class="profile-details">
-            <img class="" src="<%=url_photo%>" alt="user-photo">
+        <a href="vistas/usuario/usuario.jsp" class="profile-details">
+            <img class="" src="<%=a%>" alt="user-photo">
             <span class="admin_name"><%=username%></span>
-        </div> 
+        </a> 
         
         <%
             }

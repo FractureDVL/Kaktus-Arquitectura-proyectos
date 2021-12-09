@@ -242,6 +242,26 @@ public class UsuarioDAO implements Serializable {
         }    
     }
     
+    public void eliminarFoto(String usuario) {
+        ConnectionDB conexion = new ConnectionDB();
+        String sql = "DELETE FROM image_user WHERE usuario = ?;";
+        PreparedStatement ps = null;
+        try {
+            ps = conexion.getConnection("UsuarioDAO.eliminarFoto").prepareStatement(sql);
+            ps.setString(1, usuario);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                ps.close();
+            } catch (Exception ex) {
+            }
+        }
+    }
+    
     public Imagen obtenerFotoUsuario(String usuario) throws SQLException{
         Imagen i = new Imagen();
         String sql = "SELECT FROM image_user WHERE usuario=?";
@@ -266,4 +286,20 @@ public class UsuarioDAO implements Serializable {
         return i;
     }
     
+    public void modificarFoto(Imagen i) throws SQLException{
+        String sql = "UPDATE image_user SET image = ? WHERE usuario = ?";
+        
+        try{
+            ConnectionDB conexion = new ConnectionDB();
+            Connection con = conexion.getConnection("UsuarioDAO.modificarFoto");
+            PreparedStatement ps = con.prepareStatement(sql);     
+            
+            ps.setBlob(1, i.getImagen());
+            ps.setString(2, i.getUsuario());
+            ps.executeUpdate();
+        }
+        catch(SQLException ex){
+        }
+    }
+ 
 }

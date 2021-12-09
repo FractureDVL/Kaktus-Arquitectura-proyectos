@@ -85,10 +85,17 @@ public class UsuarioController extends HttpServlet {
             inputStream = filePart.getInputStream();
             i.setImagen(inputStream);
             i.setUsuario(username);
+            uDao.eliminarFoto(username);
             uDao.agregarFoto(i);
-        }
-        
-        if(accion.equals("verFoto")){
+            response.sendRedirect("/Kaktus-Arquitectura-proyectos/vistas/usuario/usuario.jsp");
+        }   
+    
+    }
+    
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String accion = request.getParameter("accion");
+         if(accion.equals("verFoto")){
             response.setContentType("image/png");
 
         ConnectionDB conexion = new ConnectionDB();
@@ -116,11 +123,9 @@ public class UsuarioController extends HttpServlet {
             ps.close();
             rs.close();
             conexion = null;
-
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         }
-
     }
 }

@@ -15,7 +15,6 @@ import java.util.Objects;
 public class Imagen {
     
     int id;
-    String nombre;
     InputStream imagen;
     private byte[] img;
     String usuario;
@@ -24,9 +23,8 @@ public class Imagen {
     
     }
 
-    public Imagen(int id, String nombre, InputStream imagen, byte[] img, String usuario) {
+    public Imagen(int id, InputStream imagen, byte[] img, String usuario) {
         this.id = id;
-        this.nombre = nombre;
         this.imagen = imagen;
         this.img = img;
         this.usuario = usuario;
@@ -38,14 +36,6 @@ public class Imagen {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public InputStream getImagen() {
@@ -103,6 +93,6 @@ public class Imagen {
 
     @Override
     public String toString() {
-        return "Imagen{" + "id=" + id + ", nombre=" + nombre + ", imagen=" + imagen + ", img=" + img + ", usuario=" + usuario + '}';
+        return "Imagen{" + "id=" + id  + ", imagen=" + imagen + ", img=" + img + ", usuario=" + usuario + '}';
     } 
 }
