@@ -13,7 +13,6 @@ body {
 }
 
 .header {
-    padding-right: 30px;
     background-color: #fff;
     position: fixed;
     width: 100%;
@@ -163,7 +162,6 @@ nav .sidebar-button i {
 }
 
 .header .profile-details {
-    max-width: 200px;
     display: flex;
     flex: 1 1;
     align-items: center;
@@ -172,6 +170,7 @@ nav .sidebar-button i {
     justify-content: space-around;
     border-radius: 6px;
     height: 50px;
+    min-width: 190px;
     padding: 0 15px 0 2px;
 }
 
