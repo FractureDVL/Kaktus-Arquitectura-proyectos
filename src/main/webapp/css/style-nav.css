@@ -1,136 +1,240 @@
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 * {
-    font-family: 'Quicksand';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-/*Landing page nav bar*/
+body {
+    overflow-x: hidden;
+}
 
-.landing-page .header {
+.header {
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
-    padding: 5px 30px;
-}
-
-.landing-page .header__nav {
-    padding-left: 30px;
-    flex: 1 1;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-self: center;
-}
-
-.landing-page .header__brand {
-    display: inline-flex;
-    flex: .25 1;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    margin-right: 40px;
+    box-shadow: .5px .5px 10px rgb(197, 197, 197);
 }
 
-.landing-page .nav__brand-logo {
-    width: 35px;
-    margin-right: 5px;
+.header .logo-details {
+    height: 80px;
+    align-items: center;
 }
 
-.landing-page .nav__brand-text-logo {
+.header .logo-details i {
+    font-size: 28px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    min-width: 60px;
+    text-align: center
+}
+
+.header .logo-details .img_logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 11px;
+    margin-left: 15px;
+}
+
+.header .logo-details .logo_name {
     text-transform: uppercase;
     font-family: 'Oxygen', sans-serif;
-    color: #3CAD7B;
     margin: 0px;
-    font-size: 35px;
+    font-size: 40px;
     font-weight: bold;
     color: #57CC99;
     filter: drop-shadow(-3px 0px 0px #267072);
     letter-spacing: 2px;
 }
-
-.landing-page .option--no-style {
-    list-style: none;
+.header .option-link {
+    display: flex;
 }
-
-.landing-page .link--no-deco {
+.header div div a {
     text-decoration: none;
+    padding: 10px;
 }
-
-.landing-page .link-clr {
-    color: #3CAD7B;
-}
-
-/*search bar*/
-
-.landing-page .header__search-bar {
-    flex: 1 1;
-    align-self: center;
-    display: inline-flex;
-    border-radius: 5px;
-    outline: none;
-    margin-left: 0px;
-}
-
-.landing-page .search-bar__form {
+.header div {
+    margin-left: 15px;
+    margin-right: 15px;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    justify-content: space-between;
 }
-
-.landing-page .search-bar__input {
-    border: 1px solid #CCCCCC;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 10px;
-    width: 100%;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    outline: none;
+.header div .option-login a {
+    background-color: #fff;
+    color: #16bd6f;
+    border: 2px solid #16bd6f;
     border-radius: 5px;
 }
-
-.landing-page .input--no-deco::-webkit-search-cancel-button {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-}
-
-.landing-page .search-bar__input::placeholder {
-    color: #3CAD7B;
-    text-align: center;
-}
-
-.landing-page .search-bar__btn {
-    background-color: #3CAD7B;
-    display: flex;
-    border: none;
-    outline: none;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-}
-
-.landing-page .clr-white {
+.header div .option-register a {
+    background-color: #16bd6f;
     color: #fff;
-    text-align: center;
+    border: 2px solid #16bd6f;
+    border-radius: 5px;
+}
+.home-section {
+    position: relative;
+    background: #f5f5f5;
+    min-height: 100vh;
+    width: calc(100% - 240px);
+    left: 240px;
+    transition: all 0.5s ease;
 }
 
-/*Option btn style*/
+.sidebar.active~.home-section {
+    width: calc(100% - 60px);
+    left: 60px;
+}
 
-.landing-page .nav__option-link {
-    margin: 0 20px;
+.home-section nav {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    background: #fff;
+    display: flex;
     align-items: center;
+    position: fixed;
+    width: calc(100% - 240px);
+    left: 240px;
+    z-index: 100;
+    padding: 0 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+.sidebar.active~.home-section nav {
+    left: 60px;
+    width: calc(100% - 60px);
+}
+
+.home-section nav .sidebar-button {
     display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
 }
 
-.landing-page .btn--style-nb {
-    border-radius: 3px;
-    border: 1px solid #3CAD7B;
-    padding: 5px;
+nav .sidebar-button i {
+    font-size: 35px;
+    margin-right: 10px;
 }
 
-.landing-page .btn--style-b {
+.search-box {
+    margin-left: auto;
+    position: relative;
+    height: 50px;
+    max-width: 550px;
+    width: 100%;
+    margin: 0 5px;
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    background: #F5F6FA;
+    border: 2px solid #EFEEF1;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 0 15px;
+}
+
+.search-box .bx-search {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background: #16bd6f;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 4px;
+    line-height: 40px;
+    text-align: center;
     color: #fff;
-    background-color: #3CAD7B;
-    border-radius: 3px;
-    border: 1px solid #3CAD7B;
-    padding: 5px;
+    font-size: 22px;
+    transition: all 0.4 ease;
 }
+
+.header .profile-details {
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    background: #F5F6FA;
+    border: 2px solid #EFEEF1;
+    justify-content: space-around;
+    border-radius: 6px;
+    height: 50px;
+    min-width: 190px;
+    padding: 0 15px 0 2px;
+}
+
+.header .profile-details img {
+    height: 40px;
+    width: 40px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.header .profile-details .admin_name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    margin: 0 10px;
+    white-space: nowrap;
+}
+
+
+/*no idea */
+.home-content {
+    padding: 150px 0;
+    display: flex;
+    top: 80px;
+    height: 100vh;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+.box{
+    
+    border-color: #267072;
+    width: 650px;
+    height: 350px;
+    display:flex;
+    box-shadow: 0 10px 35px rgba(50,50,93,.1),0 2px 15px rgba(0,0,0,.07);
+    margin-bottom: 50px;
+}
+
+
+.box-images{
+    width: 50%;
+}
+
+.image{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+}
+.box-text{
+    width: 50%;
+    padding: 45px;
+}
+.box-title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.box-description{
+    font-size: 16px;
+}
+
 
 /* Google icons into the css file*/
 
@@ -145,7 +249,6 @@
     font-family: 'Material Icons Outlined';
     font-weight: normal;
     font-style: normal;
-    font-size: 24px;
     line-height: 1;
     letter-spacing: normal;
     text-transform: none;
@@ -155,31 +258,4 @@
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
-}
-
-.article{
-    margin: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-}
-.reference{
-    padding: 20px;
-    border: 1px solid #CDCDCD;
-    display: flex;
-    margin: auto ;
-}
-.images{
-    padding-right: 20px ;
-}
-.info-text{
-    max-width: 300px;
-}
-
-.title{
-    text-align: center;
-    font-size: 22px;
-}
-.description{
-    font-size: 16px;
 }
