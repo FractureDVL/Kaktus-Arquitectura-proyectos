@@ -59,10 +59,10 @@
             else
         {%>
         
-        <div class="profile-details">
-            <img class="" src="<%=url_photo%>" alt="user-photo">
+        <a class="profile-details">
+            <img class="" src="<%= url_photo%>" alt="user-photo">
             <span class="admin_name"><%=username%></span>
-        </div> 
+        </a> 
         
         <%
             }
