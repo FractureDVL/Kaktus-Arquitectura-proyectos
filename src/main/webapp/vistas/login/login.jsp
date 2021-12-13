@@ -21,7 +21,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
         <!--Mi css-->
-        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/style-import.css">
         <link rel="shortcut icon" href="assets/img/Kaktus2.svg" type="image/x-icon">
 
         <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -47,7 +47,7 @@
                         <label class="form__label" for="password">Contrase&ntilde;a</label>
                         <input class="form__input form__input-contain input--no-outline" type="password" name="password"
                                id="password" required>
-                        <p class="forgot-pass--ctn"><a class="forgot__pass" href="../recuperacionContraseña/reset_password.html">Olvidaste tu contrase&ntilde;a?</a></p>
+                        <p class="forgot-pass--ctn"><a class="forgot__pass" href="../recuperacionContrasenia/reset_password.jsp">Olvidaste tu contrase&ntilde;a?</a></p>
                     </div>
                     <%
                         int a = Integer.parseInt(request.getParameter("rta"));
@@ -62,8 +62,8 @@
                         <button class="btn--submit btn--noBorder btn--noOutline" type="submit">Ingresar</button>
                         <!--<input class="btn--submit btn--noBorder btn--noOutline" type="submit" value="Ingresar">-->
 
-                        <p class="myform__text text--nodisplay"><span>A&uacute; no tienes cuenta?</span><br><a class="text__link"
-                                                                                                               href="register.html"> Crea una cuenta.</a></p>
+                        <p class="myform__text text--nodisplay"><span>A&uacute; no tienes cuenta?</span><br>
+                            <a class="text__link" href="register.html"> Crea una cuenta.</a></p>
                     </div>
                 </form>
             </div>

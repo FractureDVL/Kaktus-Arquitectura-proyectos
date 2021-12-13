@@ -1,0 +1,177 @@
+:root {
+    --btn-font: 20px;
+    --color-grey: #cccccc;
+    --color-grey-hover: #b1b1b1;
+    --color-light-greenblue: #BDF4F4;
+    --color-white: #fff;
+    --color-dark-greenblue: #1E6673;
+    --color-dark-greenblue-hover: #19555f;
+    --color-medium-greenblue: #2FA4B8;
+    --color-ultra-light-grey: #F0F0F0;
+    --background-image: url("../assets/img/Background.svg");
+}
+.register-page {
+    font-family: 'Quicksand', sans-serif;
+}
+/*Register box*/
+
+.register-page .register {
+    height: 100vh;
+    display: grid;
+    flex-direction: row;
+    align-items: center;
+    grid-template-columns: 1fr 1.3fr;
+    animation: moveAnimation 1s ease-in;
+}
+.register-page .background-image {
+    background: var(--background-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.register-page .myform__container{
+    display: flex;
+    justify-content: center;
+    grid-column: 2/3;
+}
+.register-page .background-image {
+    background: var(--background-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.register-page .myform__container{
+    display: flex;
+    justify-content: center;
+    grid-column: 2/3;
+}
+.register-page .text__link {
+    text-decoration: none;
+    color: var(--color-dark-greenblue);
+}
+.register-page .myform {
+    min-width: 400px;
+    box-shadow: 0 0 15px var(--color-grey);
+    background-color: var(--color-white);
+    border-radius: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    padding: 50px 70px;
+    align-self: center;
+    animation: moveAnimation 1s ease-in;
+}
+.register-page .myform__text {
+    margin-bottom: 20px;
+    margin-top: 30px;
+    color: var(--color-dark-greenblue);
+    align-self: flex-start;
+}
+.register-page .myform__text.text--nodisplay {
+    display: none;
+}
+.register-page .form__label {
+    font-size: 16px;
+    color: var(--color-medium-greenblue);
+}
+.register-page .form__input {
+    display: flex;
+    box-sizing: border-box;
+    border: 1px var(--color-grey) solid;
+    border-radius: 5px;
+    padding-left: 5px; 
+    margin: 5px 0 10px 0;;
+}
+.register-page .form__input--pass {
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    width: 100%;
+}
+.register-page .form__input-contain {
+    margin: 5px 0 10px 0;
+    height: 29px;
+    width: 100%;
+}
+.register-page .form__input-contain:focus {
+    outline: none;
+}
+/*Buttons register and google signup*/
+.register-page .btn--noBorder {
+    border: none;
+}
+.register-page .btn--noOutline {
+    outline: none;
+}
+.register-page .btn__icon {
+    margin-left: auto;
+    display: flex;
+    align-self: center;
+    background-color: transparent;
+    user-select: none;
+}
+.register-page .myform__btns {
+    display: flex;
+    flex-direction: column;
+}
+.register-page .btn--submit {
+    color: var(--color-white);
+    background-color: var(--color-dark-greenblue);
+    border-radius: 100px;
+    font-size: 18px;
+    padding: 10px 30px 10px 30px;
+    margin: 0;
+    margin-top: 20px;
+    align-self: center;
+}
+.register-page .btn--submit:hover {
+    background-color: var(--color-dark-greenblue-hover);
+}
+@keyframes moveAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(100);
+    }
+    100% {
+        opacity: 100;
+        transform: 0;
+    }
+}
+/* Form input width */
+
+.register-page .myform__field {
+    width: 100%;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+.register-page .myform__title {
+    margin: 0;
+    font-weight: bolder;
+    text-align: center;
+    color: var(--color-dark-greenblue);
+    font-size: 40px;
+}
+.register-page .input-ctn{
+    display: flex;
+    flex-direction: row;
+}
+.register-page .myform__btn {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.register-page .input--no-validate {
+    border: 1px #ff0000 solid;
+}
+.register-page .forgot-pass--ctn {
+    margin-top: 5px;
+}
+
+.register-page #alerta-login{
+    margin-bottom: 10px;
+    padding: 10px; 
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+  }

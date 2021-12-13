@@ -37,7 +37,7 @@
 
                 <div class="myform__field">
                     <label class="form__label" for="descripcion">Descripción</label>
-                    <input class="form__input form__input-contain input--no-outline" type="text" name="descripcion" id="descripcion"
+                    <input class="form__input form__input-contain input--no-outline" type="textarea" name="descripcion" id="descripcion"
                         value=<%= request.getParameter("descripcion") %> required>
                 </div>
 

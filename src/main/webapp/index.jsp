@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar | Kaktus</title>
+    <title>Kaktus | Arquitectura proyectos</title>
     <!--Estándar-->
-    <link rel="shortcut icon" href="../../assets/img/Kaktus2.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/Kaktus2.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/normalize.css">
     <!--Iconos google-->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -49,7 +49,7 @@
                 %>
         <div>
             <div class="option-link option-login">
-                <a href="vistas/login/login.jsp?rta=1"">Iniciar Sesión</a>
+                <a href="vistas/login/login.jsp?rta=1" >Iniciar Sesión</a>
             </div>
             <div class="option-link option-register">
                 <a href="vistas/registro/registro.jsp?rtaUser=0&&rtaEmail=0">Registrarse</a>
@@ -60,7 +60,7 @@
             else
         {%>
         
-        <a href="vistas/usuario/usuario.jsp" class="profile-details">
+        <a href="vistas/usuario/usuario.jsp" class="profile-details" style="text-decoration: none">
             <img class="" src="<%=a%>" alt="user-photo">
             <span class="admin_name"><%=username%></span>
         </a> 
@@ -74,7 +74,7 @@
 
         <div class="box">
             <div class="box-images">
-                <img class="image" src="assets/img/reference.png" alt="project reference">
+                <img class="image" src="assets/img/reference1.jpg" alt="project reference">
             </div>
             <div class="box-text">
                 <h2 class="box-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. </h2>
@@ -85,7 +85,7 @@
         </div>
         <div class="box">
             <div class="box-images">
-                <img class="image" src="assets/img/reference2.png" alt="project reference">
+                <img class="image" src="assets/img/reference2.jpg" alt="project reference">
             </div>
             <div class="box-text">
                 <h2 class="box-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. </h2>
@@ -97,7 +97,7 @@
 
         <div class="box">
             <div class="box-images">
-                <img class="image" src="assets/img/reference.png" alt="project reference">
+                <img class="image" src="assets/img/reference3.jpg" alt="project reference">
             </div>
             <div class="box-text">
                 <h2 class="box-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. </h2>
@@ -108,7 +108,7 @@
         </div>
         <div class="box">
             <div class="box-images">
-                <img class="image" src="assets/img/reference2.png" alt="project reference">
+                <img class="image" src="assets/img/reference4.jpg" alt="project reference">
             </div>
             <div class="box-text">
                 <h2 class="box-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. </h2>

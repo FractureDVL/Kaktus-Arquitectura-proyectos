@@ -35,8 +35,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
         <!--Mi css-->
-        <link rel="stylesheet" href="../../css/style.css">
-        <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
+        <link rel="stylesheet" href="../../css/style-import.css">
+        <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style-import.css">
         <link rel="shortcut icon" href="assets/img/Kaktus2.svg" type="image/x-icon">
 
         <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
