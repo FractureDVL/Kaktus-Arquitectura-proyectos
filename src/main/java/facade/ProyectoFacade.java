@@ -14,32 +14,35 @@ import java.util.List;
  * @author joseb
  */
 public class ProyectoFacade {
-        
+
     private ProyectoNegocio proyectoNegocio;
 
     public ProyectoFacade() {
         proyectoNegocio = new ProyectoNegocio();
     }
-    
-    public List<ProyectoDTO> buscarProyectos(){
+
+    public List<ProyectoDTO> buscarProyectos() {
         return proyectoNegocio.buscarProyectos();
     }
-    
-    public List<ProyectoDTO> buscarProyectosUser(String username){
+
+    public List<ProyectoDTO> buscarProyectosUser(String username) {
         return proyectoNegocio.buscarProyectosUser(username);
     }
+
+    public List<ProyectoDTO> listarProyectos() {
+        return proyectoNegocio.listarProyectos();
+    }
     
-    
-    public int eliminarProyecto(ProyectoDTO proyecto){
+    public int eliminarProyecto(ProyectoDTO proyecto) {
         return proyectoNegocio.eliminarProyecto(proyecto);
     }
-    
-    public int actualizarProyecto(ProyectoDTO proyecto){
-        return proyectoNegocio.actualizarProyecto(proyecto);    
+
+    public int actualizarProyecto(ProyectoDTO proyecto) {
+        return proyectoNegocio.actualizarProyecto(proyecto);
     }
-    
-    public boolean crearProyecto(ProyectoDTO proyecto){
+
+    public boolean crearProyecto(ProyectoDTO proyecto) {
         return proyectoNegocio.crearProyecto(proyecto);
     }
-    
+
 }

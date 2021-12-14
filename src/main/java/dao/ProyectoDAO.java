@@ -20,7 +20,8 @@ import java.util.List;
  * @author joseb
  */
 public class ProyectoDAO implements Serializable {
-
+    
+    private static final String GET_ALL_PROJECTS = "SELECT * FROM projects";
     public static final String GET_ALL = "SELECT * FROM projects WHERE id_project = ?";
     public static final String GET_ONE = "SELECT * FROM projects WHERE nickname_user = ?";
     public static final String GET_IMAGE = "SELECT image_projects.img_url FROM projects INNER JOIN image_projects ON projects.id_project = image_projects.id_project;";
@@ -182,5 +183,39 @@ public class ProyectoDAO implements Serializable {
         
     
     }
+    
+    public List<ProyectoDTO> listarProyectos() throws Exception {
+        List<ProyectoDTO> proyectos = new ArrayList<ProyectoDTO>();
+
+        ConnectionDB conexion = new ConnectionDB();
+        Connection con = conexion.getConnection("ProyectoDAO.listarProyectos");
+
+        PreparedStatement ps = con.prepareStatement(this.GET_ALL_PROJECTS);
+        ResultSet rst = ps.executeQuery();
+
+        while (rst.next()) {
+
+            ProyectoDTO proyecto = new ProyectoDTO();
+            
+            proyecto.setId_proyecto(rst.getInt("id_project"));
+            proyecto.setTitulo(rst.getString("name_project"));
+            proyecto.setUsuario(rst.getString("nickname_user"));
+            proyecto.setDescripcion(rst.getString("description"));
+
+            proyectos.add(proyecto);
+        }
+
+        rst.close();
+        rst = null;
+
+        ps.close();
+        ps = null;
+
+        con.close();
+        con = null;
+
+        return proyectos;
+    }
+
 
 }
