@@ -44,4 +44,11 @@ public class UsuarioFacade {
     public UsuarioDTO iniciarSesion(String username, String password){
         return usuarioNegocio.iniciarSesion(username, password);
     }
+    
+    public int actualizarFoto(UsuarioDTO usuario){
+        return usuarioNegocio.actualizarFoto(usuario);
+    }
+    public UsuarioDTO obtenerImagenUsuario(String nickname){
+        return usuarioNegocio.obtenerImagenUsuario(nickname);
+    }
 }

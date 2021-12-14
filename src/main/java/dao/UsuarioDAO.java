@@ -1,7 +1,6 @@
 package dao;
 
 import Controller.ConnectionDB;
-import entidades.Imagen;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +16,8 @@ public class UsuarioDAO implements Serializable {
 
     private static final String GET_ALL = "SELECT * FROM users";
     private static final String GET_ONE = "SELECT * FROM users WHERE id_user = ?";
+    private static final String GET_IMG = "SELECT image_url FROM users WHERE nickname = ?";
+    private static final String UPDATE_IMG = "UPDATE users SET image_url = ? WHERE nickname = ?";
     private static final String DROP_USER = "DELETE FROM users WHERE id_user = ?";
     private static final String UPDATE_USER = "UPDATE users SET name = ?, email = ?, password = ? WHERE id_user = ?";
     private static final String CREATE_USER = "INSERT INTO `users`(`name`, `email`, `nickname`, `password`) VALUES (?,?,?,?)";
@@ -225,81 +226,63 @@ public class UsuarioDAO implements Serializable {
         return 0;
     }
     
-    public void agregarFoto(Imagen i){
-        int r = 0;
-        String sql = "INSERT INTO image_user ( image, usuario) VALUES (?,?)";
+    public int actualizarFoto(UsuarioDTO usuario){
+        int registro = 1;
         
         try {
             ConnectionDB conexion = new ConnectionDB();
             Connection con = conexion.getConnection("UsuarioDAO.agregarFoto");
-            PreparedStatement ps = con.prepareStatement(sql);     
+            PreparedStatement ps = con.prepareStatement(this.UPDATE_IMG);
+            int id = usuario.getId();
+            String user = usuario.getUser();
+            String ruta = usuario.getImgUrl();
             
-            ps.setBlob(1, i.getImagen());
-            ps.setString(2, i.getUsuario());
-            ps.executeUpdate();
+            ps.setString(1, ruta);
+            ps.setString(2, user);
             
-        } catch (Exception e) {
-        }    
+            registro = ps.executeUpdate();
+            
+            ps.close();
+            ps = null;
+        
+            con.close();
+            con = null;    
+            
+        } 
+        catch (Exception e) {
+        }
+        return registro;
     }
     
-    public void eliminarFoto(String usuario) {
+    public UsuarioDTO obtenerImagenUsuario(String nickname) throws SQLException{
+    
+        
         ConnectionDB conexion = new ConnectionDB();
-        String sql = "DELETE FROM image_user WHERE usuario = ?;";
-        PreparedStatement ps = null;
-        try {
-            ps = conexion.getConnection("UsuarioDAO.eliminarFoto").prepareStatement(sql);
-            ps.setString(1, usuario);
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            try {
-                ps.close();
-            } catch (Exception ex) {
-            }
-        }
-    }
-    
-    public Imagen obtenerFotoUsuario(String usuario) throws SQLException{
-        Imagen i = new Imagen();
-        String sql = "SELECT FROM image_user WHERE usuario=?";
+        Connection con = conexion.getConnection("UsuarioDAO.obtenerImagenUsuario");
+
+        ResultSet rs;
+
+        PreparedStatement ps = con.prepareStatement(this.GET_IMG);
+        int registros = 0;
         
-        try{
-            ConnectionDB conexion = new ConnectionDB();
-            Connection con = conexion.getConnection("UsuarioDAO.obtenerFotoUsuario");
-            PreparedStatement ps = con.prepareStatement(sql);     
-            ResultSet rs = null;
-            
-            ps.setString(1, usuario);
-            rs = ps.executeQuery();
-            while(rs.next()){
-                i.setId(rs.getInt(1));
-                i.setImg(rs.getBytes(2));
-                i.setUsuario(rs.getString(3));
-            }     
-        }
-        catch(SQLException ex){
-            
-        }
-        return i;
-    }
-    
-    public void modificarFoto(Imagen i) throws SQLException{
-        String sql = "UPDATE image_user SET image = ? WHERE usuario = ?";
+        UsuarioDTO usuario = new UsuarioDTO();
         
-        try{
-            ConnectionDB conexion = new ConnectionDB();
-            Connection con = conexion.getConnection("UsuarioDAO.modificarFoto");
-            PreparedStatement ps = con.prepareStatement(sql);     
-            
-            ps.setBlob(1, i.getImagen());
-            ps.setString(2, i.getUsuario());
-            ps.executeUpdate();
+        ps.setString(1, nickname);
+        rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            registros = registros + 1;
+            usuario.setImgUrl(rs.getString("image_url"));
         }
-        catch(SQLException ex){
-        }
+
+        ps.close();
+        ps = null;
+
+        con.close();
+        con = null;
+
+
+            return usuario;
+        
     }
- 
 }

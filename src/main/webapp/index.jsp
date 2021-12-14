@@ -40,9 +40,9 @@
         <%
                     HttpSession sesion =request.getSession();
                     String username;
-                    String url_photo;
+                    String  image_url ;
                     username = (String) sesion.getAttribute("username");
-                    url_photo = (String) sesion.getAttribute("image_url");
+                    image_url = (String) sesion.getAttribute("image_url");
                     String a = "/Kaktus-Arquitectura-proyectos/UsuarioController?accion=verFoto&user="+username;
                     
                     if(username == null){
@@ -61,7 +61,7 @@
         {%>
         
         <a href="vistas/usuario/usuario.jsp" class="profile-details" style="text-decoration: none">
-            <img class="" src="<%=a%>" alt="user-photo">
+            <img class="" src="<%= "public/"+username+"/"+image_url%>" alt="user-photo">
             <span class="admin_name"><%=username%></span>
         </a> 
         

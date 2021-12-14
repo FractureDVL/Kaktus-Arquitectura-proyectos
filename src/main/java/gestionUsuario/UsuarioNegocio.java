@@ -96,4 +96,29 @@ public class UsuarioNegocio implements Serializable {
         }
         return usuario;
     }
+    public int actualizarFoto(UsuarioDTO usuario) {
+
+        int rta = 0;
+        try {
+
+            rta = usuariodao.actualizarFoto(usuario);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+        return rta;
+    }
+    
+    public UsuarioDTO obtenerImagenUsuario(String nickname) {
+        UsuarioDTO usuario = new UsuarioDTO();
+        try {
+            usuario = usuariodao.obtenerImagenUsuario(nickname);
+        } catch (Exception e) {
+            usuario = null;
+            e.printStackTrace();
+        }
+        return usuario;
+    }
 }

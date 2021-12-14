@@ -1,15 +1,18 @@
+<%@page import="facade.UsuarioFacade"%>
 <%@page import="entidades.ProyectoDTO"%>
 <%@page session="true" %>
 <jsp:useBean id="facade" class="facade.ProyectoFacade" scope="session"/>
 <%
     HttpSession sesion = request.getSession();
+    UsuarioFacade usuarioFacade = new UsuarioFacade();
     int id;
     String username = "";
     String image_url = "";
     id = Integer.parseInt(sesion.getAttribute("id").toString());
     username = sesion.getAttribute("username").toString();
     image_url = sesion.getAttribute("image_url").toString();
-    String a = "/Kaktus-Arquitectura-proyectos/UsuarioController?accion=verFoto&user="+username;
+    
+    String userPhoto = "../../public/"+username+"/"+usuarioFacade.obtenerImagenUsuario(username).getImgUrl();
 %>
 
 <!DOCTYPE html>
@@ -83,7 +86,7 @@
                     <i class='bx bx-search'></i>
                 </div>
                 <div class="profile-details">
-                    <img src="<%=a%>" alt="user-photo">
+                    <img src="<%= userPhoto%>"  alt="">
                     <span class="admin_name"><%=username%></span>
                 </div>
             </nav>
@@ -92,6 +95,7 @@
                 <div class="overview-boxes">
 
                     <a class="box" href="../proyecto/proyectoForm.jsp">
+                        
                         <i class='bx bxs-add-to-queue'></i>
                     </a>
 
