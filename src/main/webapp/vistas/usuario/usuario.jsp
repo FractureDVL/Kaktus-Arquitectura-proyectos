@@ -105,8 +105,9 @@
                             String titulo = p.getTitulo();
                             String descripcion = p.getDescripcion();
                             String fechaCreacion = p.getFechaCreacion().toString();
+                            String imagen = p.getImagen();
                     %>
-                    <div style="background-image: url(../../assets/img/stringio.jpg);" class="box-project background_proyect">
+                    <div style="background-image: url(../../public/<%= username%>/Proyectos/<%= titulo%>/<%= imagen%>);" class="box-project background_proyect">
                         <a href="../proyecto/editarProyecto.jsp?id=<%= id_proyecto %>&titulo=<%= titulo %>&descripcion=<%= descripcion %>"><i class='bx bxs-edit'></i></a>
                         <a class="delete" href="<%=request.getContextPath()%>/ProyectoController?accion=eliminar&id=<%= p.getId_proyecto()%>">
                             <i class='bx bxs-trash'></i>

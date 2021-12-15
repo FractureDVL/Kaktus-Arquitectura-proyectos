@@ -1,3 +1,4 @@
+<%@page import="facade.UsuarioFacade"%>
 <%@page import="entidades.ProyectoDTO"%>
 <%@page session="true" %>
 <jsp:useBean id="facade" class="facade.ProyectoFacade" scope="session"/>
@@ -42,11 +43,12 @@
 
             <%
                         HttpSession sesion =request.getSession();
+                        UsuarioFacade usuarioFacade = new UsuarioFacade();
                         String username;
                         String url_photo;
                         username = (String) sesion.getAttribute("username");
                         url_photo = (String) sesion.getAttribute("image_url");
-                        String a = "/Kaktus-Arquitectura-proyectos/UsuarioController?accion=verFoto&user="+username;
+                        String a = "public/"+username+"/"+usuarioFacade.obtenerImagenUsuario(username).getImgUrl();
                     
                         if(username == null){
             %>
@@ -64,7 +66,7 @@
             {%>
 
             <a href="vistas/usuario/usuario.jsp" class="profile-details" style="text-decoration: none">
-                <img class="" src="<%= url_photo%>" alt="user-photo">
+                <img class="" src="<%= a%>" alt="user-photo">
                 <span class="admin_name"><%=username%></span>
             </a> 
 
@@ -80,10 +82,11 @@
                                String usuario = p.getUsuario();
                                String titulo = p.getTitulo();
                                String descripcion = p.getDescripcion();
+                               String imagen = p.getImagen();
             %>
             <div class="box">
                 <div class="box-images">
-                    <img class="image" src="assets/img/reference1.jpg" alt="project reference">
+                    <img class="image" src="public/<%= usuario%>/Proyectos/<%= titulo%>/<%= imagen%>" alt="project reference">
                 </div>
                 <div class="box-text">
                     <h2 class="box-title"><%=titulo%> </h2>

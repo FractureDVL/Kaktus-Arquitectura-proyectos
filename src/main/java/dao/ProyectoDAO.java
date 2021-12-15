@@ -192,6 +192,7 @@ public class ProyectoDAO implements Serializable {
             proyecto.setTitulo(rst.getString("name_project"));
             proyecto.setDescripcion(rst.getString("description"));
             proyecto.setFechaCreacion(rst.getDate("created_at"));
+            proyecto.setImagen(rst.getString("image_project"));
             proyectos.add(proyecto);
         }
 
@@ -226,6 +227,7 @@ public class ProyectoDAO implements Serializable {
             proyecto.setTitulo(rst.getString("name_project"));
             proyecto.setUsuario(rst.getString("nickname_user"));
             proyecto.setDescripcion(rst.getString("description"));
+            proyecto.setImagen(rst.getString("image_project"));
 
             proyectos.add(proyecto);
         }
