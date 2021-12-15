@@ -17,6 +17,7 @@ public class ProyectoDTO {
     private int id_proyecto;
     private String usuario;
     private String titulo;
+    private String imagen;
     private String descripcion;
     private Date fechaCreacion;
 
@@ -40,6 +41,14 @@ public class ProyectoDTO {
 
     public String getUsuario() {
         return usuario;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public void setUsuario(String usuario) {

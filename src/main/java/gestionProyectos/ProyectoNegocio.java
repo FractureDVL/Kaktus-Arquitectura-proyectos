@@ -15,6 +15,7 @@ import java.util.List;
  * @author joseb
  */
 public class ProyectoNegocio {
+
     private ProyectoDAO proyectodao;
 
     //Contructor
@@ -35,11 +36,25 @@ public class ProyectoNegocio {
 
         return proyectos;
     }
-     public List<ProyectoDTO> buscarProyectosUser(String username) {
+
+    public List<ProyectoDTO> buscarProyectosUser(String username) {
         List<ProyectoDTO> proyectos = new ArrayList<ProyectoDTO>();
 
         try {
             proyectos = proyectodao.buscarProyectosUser(username);
+        } catch (Exception e) {
+            e.printStackTrace();
+            proyectos = null;
+        }
+
+        return proyectos;
+    }
+
+    public List<ProyectoDTO> listarProyectos() {
+        List<ProyectoDTO> proyectos = new ArrayList<ProyectoDTO>();
+
+        try {
+            proyectos = proyectodao.listarProyectos();
         } catch (Exception e) {
             e.printStackTrace();
             proyectos = null;
@@ -83,5 +98,22 @@ public class ProyectoNegocio {
 
         }
         return rta;
-    }   
+    }
+    
+   
+    public int  actualizarImagen(ProyectoDTO proyecto) {
+
+        int rta = 0;
+
+        try {
+
+            rta = proyectodao.actualizarImagen(proyecto);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+        return rta;
+    }
 }

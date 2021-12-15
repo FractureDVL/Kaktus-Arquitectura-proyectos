@@ -20,8 +20,6 @@ import org.apache.commons.io.output.*;
 @WebServlet("/CambiarFoto")
 public class CambiarFoto extends HttpServlet {
            
-          
-    
 	   boolean isMultipart;	   
 	   long maxFileSize = 1024 * 1024*1024;
 	   int maxMemSize = 4 * 1024;

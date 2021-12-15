@@ -1,5 +1,4 @@
-<%@page session="true" %>
-
+<%@page session="true"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -26,20 +25,14 @@
     <div class="register background-image">
 
         <div class="myform__container">
-            <form class="myform" action="<%=request.getContextPath()%>/ProyectoController?accion=crear" method="POST">
+            <form class="myform" action="<%=request.getContextPath()%>/ProyectoController?accion=foto" method="POST" enctype="multipart/form-data">
                 <h1 class="myform__title">Crear proyecto</h1>
                 
                 <div class="myform__field">
-                    <label class="form__label" for="titulo">Titulo</label>
-                    <input class="form__input form__input-contain input--no-outline" type="text" name="titulo"
-                        id="titulo" required>
+                    <label class="form__label" for="foto">Foto</label>
+                    <input class="form__input form__input-contain input--no-outline" type="file" name="file" id="foto" required >
                 </div>
-
-                <div class="myform__field">
-                    <label class="form__label" for="descripcion">Descripción</label>
-                    <input class="form__input form__input-contain input--no-outline" type="text" name="descripcion" id="descripcion"
-                        required>
-                </div>
+                
                 <div class="myform__btns">
                     <button class="btn--submit btn--noBorder btn--noOutline" type="submit">Crear</button>
                 </div>
@@ -50,3 +43,7 @@
 </body>
 
 </html>
+
+
+
+

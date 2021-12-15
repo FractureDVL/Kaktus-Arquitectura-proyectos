@@ -40,6 +40,12 @@
                     <input class="form__input form__input-contain input--no-outline" type="textarea" name="descripcion" id="descripcion"
                         value=<%= request.getParameter("descripcion") %> required>
                 </div>
+              
+                <div class="myform__field">
+                    <label class="form__label" for="foto">Foto</label>
+                    <input class="form__input form__input-contain input--no-outline" type="file" name="file" id="foto" required>
+                </div>
+               
 
                 <div class="myform__btns">
                     <button class="btn--submit btn--noBorder btn--noOutline" type="submit">Actualizar</button>
