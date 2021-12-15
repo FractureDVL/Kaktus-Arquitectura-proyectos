@@ -37,8 +37,8 @@ public class ProyectoController extends HttpServlet{
             String username = sesion.getAttribute("username").toString();
             String titulo = request.getParameter("titulo");
             String descripcion = request.getParameter("descripcion");
-            
-            File f = new File("C:\\Kaktus-Arquitectura-proyectos\\src\\main\\webapp\\public\\" + username + "\\Proyectos\\"+titulo);
+            sesion.setAttribute("titulo", titulo);
+            File f = new File("C:\\Kaktus-Arquitectura-proyectos\\src\\main\\webapp\\public\\" + username + "\\Proyectos\\"+ titulo+"\\");
             f.mkdir();
                     
             
@@ -55,7 +55,7 @@ public class ProyectoController extends HttpServlet{
             try {
                 rta = proyectoFacade.crearProyecto(proyectoDTO);
                 
-                response.sendRedirect("/Kaktus-Arquitectura-proyectos/vistas/proyecto/agregarImagen.jsp");
+                response.sendRedirect("/Kaktus-Arquitectura-proyectos/vistas/proyecto/agregarImagen.jsp?t="+titulo);
                 
                 
             } catch (Exception e) {
@@ -92,6 +92,7 @@ public class ProyectoController extends HttpServlet{
             
             HttpSession sesion = request.getSession();
             String username = sesion.getAttribute("username").toString();
+            String titulo = sesion.getAttribute("titulo").toString();
             
             
             boolean isMultipart;	   
@@ -100,7 +101,7 @@ public class ProyectoController extends HttpServlet{
             File file ;
             String fileName = null;
         
-            String FileLocation = "C:/Kaktus-Arquitectura-proyectos/src/main/webapp/public/" + username + "/Proyectos/";
+            String FileLocation = "C:/Kaktus-Arquitectura-proyectos/src/main/webapp/public/" + username + "/Proyectos/"+titulo+"/";
             isMultipart = ServletFileUpload.isMultipartContent(request);
 
             response.setContentType("text/html");
@@ -164,7 +165,7 @@ public class ProyectoController extends HttpServlet{
             ProyectoFacade proyectoFacade = new ProyectoFacade();
             String ruta = fileName;
             
-            String titulo = request.getParameter("titulo");
+            //String titulo = request.getParameter("t");
             
             proyecto.setTitulo(titulo);
             
